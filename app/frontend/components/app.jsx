@@ -1,19 +1,21 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { AuthRoute } from '../utils/route_util';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import SignupContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
+import Home from './home/home';
 
-{/* <Route exact path="/login" component={LoginContainer} />    */}
+const App = () => (
+    <div>
+        {/* <Home /> */}
+        <Switch>
+            <Route exact path="/" component={Home}/>
+            <AuthRoute exact path="/login" component={LoginContainer} />
+            <AuthRoute exact path="/signup" component={SignupContainer} />
+            <Redirect to="/" />
+        </Switch>
+    </div>
 
-export default () => (
-    <Route to="login" component={LoginContainer} />
-)
-
-//     < Route exact path = "/" render = {() => (
-//         false ? (
-//             <Redirect to="/product_index" />
-//         ) : (
-//                 <Route exact path="/login" component={LoginContainer} />
-//             )
-//     )}
-// />
+    );
+    
+export default App;

@@ -6,14 +6,14 @@ import LoginContainer from './session/login_container';
 {/* <Route exact path="/login" component={LoginContainer} />    */}
 
 export default () => (
-
-    < Route exact path="/" render={() => (
-        false ? (
-            <Redirect to="/product_index" />
-        ) : (
-            <Route exact path="/login" component={LoginContainer} />
-            )
-        )}
-    />
-
+    <Route to="login" component={LoginContainer} />
 )
+
+//     < Route exact path = "/" render = {() => (
+//         false ? (
+//             <Redirect to="/product_index" />
+//         ) : (
+//                 <Route exact path="/login" component={LoginContainer} />
+//             )
+//     )}
+// />

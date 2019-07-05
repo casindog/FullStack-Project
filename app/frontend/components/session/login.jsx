@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props) {
@@ -20,19 +21,38 @@ class Login extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state)
-        // .then( () => this.props.history.push('/chirps'))
+        this.props.login(this.state);
+    }
+
+    renderErrors() {
+        return(
+            <ul>
+                {this.props.errors.map((error,idx) => (
+                    <li key={`error-${idx}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        )
     }
 
     render() {
         return (
-            <div>
+            <div className='homepage'>
                 Login
+
+                {this.renderErrors()}
+                
                 <form>
-                    <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
-                    <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                    <label>Email 
+                        <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
+                    </label>
+                    <label>Password
+                        <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                    </label>
                     <button onClick={this.handleSubmit}>Login</button>
                 </form>
+                <NavLink to='/'>Back</NavLink>
             </div>
         )
     }

@@ -1,12 +1,37 @@
- .html { 
-     width: 100%;
-     height: 100%;
- }
+.Navbar {
+  font-family: "proximanova", sans-serif;
+  display: flex;
+  height: 52px;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: aqua;
+}
 
- #root {
-     width: 100%;
-     height: 100%;
- }
+.Nav-Left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Nav-Left-items {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  padding: 14px, 10px;
+  margin: 10px;
+}
+
+.Nav-Right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Nav-Right-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px, 10px;
+  margin: 10px;
+}
 
 .homepage {
     display: flex;
@@ -21,3 +46,118 @@
     font-family: "proximanova", sans-serif;
 }
 
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  width: 700px;
+  height: 460px;
+  background-color: white;
+  display: flex;
+  font-family: "proximanova", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  display: flex;
+  justify-content: center;  
+}
+
+.modal-rotate-ad {
+  width:350px;
+  height: 460px;
+}
+
+.modal-login {
+  width: 350px;
+  height: 460px;
+  /* float: right; */
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 40px;
+  text-align: center;
+  line-height: 30px;
+  max-width: 100%;
+  padding: 0px 40px 16px 40px;
+}
+
+.modal-errors {
+  color: red;
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 350px;
+  text-align: center;
+  list-style-type: none;
+}
+
+.modal-errors > ul {
+  list-style-type: none;
+}
+
+.modal-form {
+  background-color: orange;
+  width: 308px;
+  height: 86px;
+}
+
+.modal-input-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.modal-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgb(72, 99, 111);
+    width: 57px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-inputs {
+  box-shadow: 0px 2px 3px -3px inset;
+  height: 30px;
+  color: rgb(25, 42, 50);
+  background-color: rgb(248, 250, 251);
+  font-weight: 400;
+  font-size: 14px;
+  flex: 1 1 0%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(175, 199, 209);
+  border-image: initial;
+  padding: 0px 5px;
+  margin: 5px;
+}
+
+.modal-submit {
+  background-color: rgb(47,183,236);
+  box-shadow: 0px 2px 3px -3px inset;
+  width: 208px;
+  height: 40px;
+  color: rgb(25, 42, 50);
+  font-weight: 400;
+  font-size: 14px;
+  flex: 1 1 0%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(175, 199, 209);
+  border-image: initial;
+  padding: 0px 5px;
+}

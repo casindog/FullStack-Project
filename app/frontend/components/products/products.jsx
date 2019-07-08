@@ -9,15 +9,13 @@ class Products extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.logout()
+
     }
 
     render() {
 
         return (
             <div>
-                Products
-                <button onClick={this.handleSubmit}>Sign Out</button>
             </div>
         )
     }

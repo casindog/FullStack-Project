@@ -1,5 +1,4 @@
-/* PHASE 0: Reset
-
+/* PHASE 0: Reset */
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, h3, h4, h5, h6, p, form,
@@ -41,10 +40,4 @@ button {
 button,
 input[type="submit"] {
   cursor: pointer;
-} */
-
-html, body, div {
-    width: 100%vh;
-    height: 100%vw;
-    margin: 0;
 }

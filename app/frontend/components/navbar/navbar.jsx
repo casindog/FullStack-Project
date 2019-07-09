@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfileContainer from './profile';
 
 class NavBar extends React.Component {
     constructor (props) {
@@ -12,6 +13,7 @@ class NavBar extends React.Component {
     }
 
     render () {
+        // debugger
         return(
             <div >
                 <ul className="Navbar">
@@ -26,27 +28,30 @@ class NavBar extends React.Component {
                             <a href="#">Search</a>
                         </div>
 
-                        <div className='Nav-Right-items'>
-                            <a href="#">Profile</a>
-                        </div>
+                        {this.props.session_id === null ? (
+                            <div>
+                            </div>
+                        ) : (
+                            <div className='Nav-Right'>
+                                <div className='Nav-Right-items'>
+                                    <a href="#" onClick={() => this.props.openModal('profile')}>{this.props.email}</a>
+                                </div>
 
-                        <div className='Nav-Right-items'>
-                            <a href="#">Notification</a>
-                        </div>
+                                <div className='Nav-Right-items'>
+                                    <a href="#">Notification</a>
+                                </div>
 
-                        <div className='Nav-Right-items'>
-                            <a href="#">Cart</a>
-                        </div>
+                                <div className='Nav-Right-items'>
+                                    <a href="#">Cart</a>
+                                </div>
 
-                        <div className='Nav-Right-items'>
-                            <a href="#">WishList</a>
-                        </div>
-
-                        {/* add a ternary to show sign out when logged in */}
-                        {/* can't read session. because there is no state */}
+                                <div className='Nav-Right-items'>
+                                    <a href="#">WishList</a>
+                                </div>
+                            </div>
+                        )}
 
                         {this.props.session_id === null ? (
-                            // that's a bit annoying. i have to use one div, so now everything is nested inside another div
                             <div className='Nav-Right'>
                                 <div className='Nav-Right-items'>
                                     <button onClick={() => this.props.openModal('signup')}>Sign up with Email</button>
@@ -58,7 +63,7 @@ class NavBar extends React.Component {
                             </div>
                         ) : (
                             <div className='Nav-Right-items'>
-                                <button onClick={this.handleSubmit}>Sign Out</button>
+                                {/* <button onClick={this.handleSubmit}>Sign Out</button> */}
                             </div>
                         )}
 

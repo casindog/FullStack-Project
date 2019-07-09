@@ -68,6 +68,12 @@
   transform: translate(-50%, -50%);
 }
 
+/* .modal-want {
+  width: 127.5px;
+  height: 16px;
+  margin: 16px, 0px;
+} */
+
 .modal {
   display: flex;
   justify-content: center;  
@@ -76,6 +82,48 @@
 .modal-rotate-ad {
   width:350px;
   height: 460px;
+  display: flex;
+  align-items: center;
+}
+
+
+.modal-prices {
+  position: absolute;
+  top: 5%;
+}
+
+.modal-rotate-info-strike {
+  background-color: rgb(239,141,46);
+  font-size: 24px;
+  font-weight: 700;
+  padding: 12px;
+  text-decoration: line-through;
+  color: white;
+  float: left;
+}
+
+.modal-rotate-info {
+  background-color: rgb(239,141,46);
+  font-size: 24px;
+  padding: 12px;
+  color: white;
+  float: left;
+}
+
+.modal-chevron {
+  width: 0px;
+  height: 0px;
+  display: inline-block;
+  vertical-align: top;
+  border-style: solid;
+  border-width: 51px 20px 0px 0px;
+  border-color: rgb(239, 141, 46) transparent transparent;
+}
+
+.modal-rotate-ad img {
+  object-fit: contain;
+  width: 93%;
+  height: 93%;
 }
 
 .modal-login {
@@ -92,6 +140,8 @@
   line-height: 30px;
   max-width: 100%;
   padding: 0px 40px 16px 40px;
+  color: rgb(25,42,50);
+  font-family: "proximanova", sans-serif;
 }
 
 .modal-errors {
@@ -108,9 +158,9 @@
 }
 
 .modal-form {
-  background-color: orange;
-  width: 308px;
-  height: 86px;
+  /* background-color: orange; */
+  width: 295px;
+  height: 85px;
 }
 
 .modal-input-wrapper {
@@ -127,7 +177,8 @@
     text-align: right;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding: 0px 10px 0px 0px;
 }
 
 .modal-inputs {
@@ -146,6 +197,16 @@
   margin: 5px;
 }
 
+.modal-buttons {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 85px;
+  width: 100%;
+  padding: 5px;
+}
+
 .modal-submit {
   background-color: rgb(47,183,236);
   box-shadow: 0px 2px 3px -3px inset;
@@ -160,4 +221,23 @@
   border-color: rgb(175, 199, 209);
   border-image: initial;
   padding: 0px 5px;
+  text-align: center;
+  color: rgb(255,255,255);
+  margin: 5px;
+}
+
+.modal-msg {
+    color: rgb(72, 99, 111);
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+    text-decoration: underline;
+    margin: 10px 0px 5px;
+}
+
+.modal-navprofile {
+  width: 100px;
+  height: 100px;
+  background-color: antiquewhite;
+  position: relative;
 }

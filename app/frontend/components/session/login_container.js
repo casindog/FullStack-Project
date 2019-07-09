@@ -18,7 +18,8 @@ const mdp = dispatch => ({
     //         Signup
     //     </button>
     // ),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    openModal: (modal) => dispatch(openModal(modal))
 })
 
 export default connect(msp, mdp)(Login);

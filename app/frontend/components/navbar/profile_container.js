@@ -1,16 +1,10 @@
 import { connect } from 'react-redux';
+import Profile from './profile';
 import { openModal, closeModal } from '../../actions/modal_action';
 import { logout } from '../../actions/session_action';
-import Navbar from './navbar'
-
 
 const msp = state => {
-    // debugger
-    return {
-        modal: state.ui.modal,
-        email: state.entities.user.email,
-        session_id: state.session.id
-    }
+    null
 }
 
 const mdp = dispatch => {
@@ -21,5 +15,4 @@ const mdp = dispatch => {
     }
 }
 
-export default connect(msp, mdp)(Navbar);
-
+export default connect(null, mdp)(Profile);

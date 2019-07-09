@@ -33,8 +33,11 @@ class NavBar extends React.Component {
                             </div>
                         ) : (
                             <div className='Nav-Right'>
-                                <div className='Nav-Right-items'>
-                                    <a href="#" onClick={() => this.props.openModal('profile')}>{this.props.email}</a>
+                                <div className='Nav-portrait' onClick={() => this.props.openModal('profile')}>
+                                    <img className='Nav-portrait-img' src="https://contestimg.wish.com/api/image/fetch?profile_image_name=NTYwNWMxYmEyMWE4NjMxNzk0ZTk1NDUy_1398450030237.jpg&w=50&h=50" alt=""/>
+                                    <div>    
+                                        {this.props.email}
+                                    </div>
                                 </div>
 
                                 <div className='Nav-Right-items'>

@@ -56,8 +56,34 @@
 .index_item_info {
     /* border-style: solid;
     border-width: 1px; */
+    display: grid;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    /* grid-template-columns: repeat(5, 230px); */
+    grid-template-rows: repeat(2);
     width: 230px;
     height: 60px;
     background-color: white;
+}
+
+.index-item-top {
+    color: rgb(25, 42, 50);
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 6px;
+    flex-shrink: 0;
+    font-family: "proximanova", sans-serif;
+}
+
+.index-item-bottom {
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgb(126, 154, 166);
+    margin-top: 6px;
+    overflow: hidden;
+    font-family: "proximanova", sans-serif;
+
 }
 

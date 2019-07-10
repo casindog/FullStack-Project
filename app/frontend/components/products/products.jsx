@@ -17,22 +17,18 @@ class Products extends React.Component {
     }
 
     render() {
-        // let product_row;
         if (this.props.products.length === 0) return null;
-        // const product_row = this.props.products.splice(0,4);
-        // if (product_row.length === 0) return null;
- 
-        // let x = [];
 
-        // while (this.props.products.length > 0) {
-        //     x.push(this.props.products.splice(0,4));
-        // }
-        // debugger
-        
         const products = this.props.products.map(product => (
             <div className='index_item_container'>
                 <img className='index_item_img' src={product.img_url} />
-                <div className='index_item_info'>information</div>
+                <div className='index_item_info'>
+                    <div className='index-item-top'>{product.original_price}</div>
+                    <div className='index-item-bottom'>{product.transactions}+ bought this</div>
+                    {/* <div>{product.verified}</div>
+                    <div>{product.fast_shipping}</div>
+                    <div>{product.almost_gone}</div> */}
+                </div>
             </div>
         ))
 

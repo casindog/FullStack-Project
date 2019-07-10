@@ -23,7 +23,7 @@ class App extends React.Component {
                 <Modal />
                 <NavbarContainer />
                 <Switch>
-                    <AuthRoute exact path="/" component={StartContainer}/>
+                    <AuthRoute exact path="/" component={ProductsContainer}/>
                     <ProtectedRoute exact path="/index" component={ProductsContainer}/>
                 </Switch>
             </div>

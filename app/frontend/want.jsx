@@ -5,6 +5,8 @@ import Root from './components/root'
 import configureStore from './store/store';
 
 import { logout } from './actions/session_action';
+import { getProducts } from './utils/products_util';
+import { requestProducts } from './actions/products_action';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -29,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(<Root store={store} />, root);
     window.getState = store.getState;
 
+
     window.dispatch = store.dispatch;
     window.logout = logout;
+    window.getProducts = getProducts;
+    window.requestProducts = requestProducts;
 })

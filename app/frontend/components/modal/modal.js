@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { closeModal, openModal } from '../../actions/modal_action';
 import LoginFormContainer from '../session/login_container';
 import SignupFormContainer from '../session/signup_container';
-import ProfileNavBarContainer from '../navbar/profile_container';
+// import ProfileNavBarContainer from '../navbar/profile_container';
 
 function Modal({modal, closeModal}) {
     if (!modal) {
@@ -18,14 +18,16 @@ function Modal({modal, closeModal}) {
         case 'signup':
             component = <SignupFormContainer />;
             break;
-        case 'profile':
-            component = <ProfileNavBarContainer />;
-            return (
-                <div className='modal-navprofile'>
-                    { component }
-                </div>
-            )
-            break;
+        // case 'profile':
+        //     component = <ProfileNavBarContainer />;
+        //     return (
+        //         <div className='modal-profile-background' onClick={closeModal}>
+        //             <div className='modal-navprofile'>
+        //                 { component }
+        //             </div>
+        //         </div>
+        //     )
+        //     break;
         default:
             return null;
         }

@@ -27,9 +27,6 @@ class Signup extends React.Component {
         // wait, i don't understand how this works. 
         this.props.login({email:'Demo@hotmail.com', password:'password'})
            .then(() => this.props.closeModal());
-
-        // this.props.login(this.state);
- 
     }
 
     handleSubmit(e) {

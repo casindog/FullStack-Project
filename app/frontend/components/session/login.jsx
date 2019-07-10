@@ -45,8 +45,13 @@ class Login extends React.Component {
         )
     }
 
+    ComponentDidMount() {
+    }
+    
     swap () {
-        this.props.openModal('signup')
+        this.setState({errors: []});
+
+        this.props.openModal('signup');
     }
 
     render() {

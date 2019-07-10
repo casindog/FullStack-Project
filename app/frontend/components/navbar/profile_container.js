@@ -4,7 +4,9 @@ import { openModal, closeModal } from '../../actions/modal_action';
 import { logout } from '../../actions/session_action';
 
 const msp = state => {
-    null
+    return {
+        email: state.entities.user.email
+    }
 }
 
 const mdp = dispatch => {
@@ -15,4 +17,4 @@ const mdp = dispatch => {
     }
 }
 
-export default connect(null, mdp)(Profile);
+export default connect(msp, mdp)(Profile);

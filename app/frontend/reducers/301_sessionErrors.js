@@ -4,7 +4,8 @@ import {
 } from '../actions/session_action';
 
 import {
-    CLOSE_MODAL
+    CLOSE_MODAL,
+    OPEN_MODAL
 } from '../actions/modal_action';
 
 export default (state = [], action) => {
@@ -15,6 +16,8 @@ export default (state = [], action) => {
         case RECEIVE_CURRENT_USER:
             return [];
         case CLOSE_MODAL:
+            return [];
+        case OPEN_MODAL:
             return [];
         default:
             return state;

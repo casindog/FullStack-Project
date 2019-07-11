@@ -21,7 +21,7 @@ class Products extends React.Component {
 
         const products = this.props.products.map(product => (
             <div className='index_item_container'>
-                <img className='index_item_img' src={product.img_url} />
+                <img className='index_item_img' src={product.photoUrls} />
                 <div className='index_item_info'>
                     <div className='index-item-top'>{product.original_price}</div>
                     <div className='index-item-bottom'>{product.transactions}+ bought this</div>

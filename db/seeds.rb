@@ -9,8 +9,21 @@
 # rails db:seed
 # Product.destroy_all
 
+
+# # don't forget to do this!
+require 'open-uri'
+
+# # create a user
+# user = User.create(email: "andy@hotmail.com", password: "password")
+
+# # create a File from the url
+# file = open('<your_file_url>')
+
+# # attach to user
+# user.avatar.attach(io: file, filename: 'this_users_avatar.jpg')
+
 #Dog StuffDog
-Product.create(
+p = Product.create(
     name: 'Vehicle Car Pet Dog Seat Belt Puppy Car Seatbelt Harness Lead Clip Cat Dog Safety Lever Auto Traction', 
     original_price: '$15', 
     transactions: 130,
@@ -18,10 +31,13 @@ Product.create(
     verified: true,
     fast_shipping: true,
     just_shipping: true,
-    img_url: 'dogseatbelt.jpeg',
+    # img_url: 'dogseatbelt.jpeg',
     seller_id: 1)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/dogseatbelt.jpeg')
+    p.photo.attach(io: file, filename: 'dogseatbelt.jpeg')
+
+p = Product.create(
     name: 'Professional Pet Anti Agrssive Deterrent Train ETU LED Dog Pet Repeller Barking Stopper', 
     original_price: '$26', 
     transactions: 1250,
@@ -29,10 +45,14 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'DogStopper.jpg',
+    # img_url: 'DogStopper.jpg',
     seller_id: 1)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogStopper.jpg')
+    p.photo.attach(io: file, filename: 'DogStopper.jpg')
+    
+
+p = Product.create(
     name: 'Rubber Kelly Big Giant Pet Dog Puppy Mega Jumbo Tennis Ball Thrower Chucker Launcher Play Toy Signature Diameter 24cm', 
     original_price: '$110', 
     transactions: 21100,
@@ -40,10 +60,13 @@ Product.create(
     verified: true,
     fast_shipping: true,
     just_shipping: false,
-    img_url: 'dogball.jpg',
+    # img_url: 'dogball.jpg',
     seller_id: 1)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/dogball.jpg')
+    p.photo.attach(io: file, filename: 'dogball.jpg')
+
+p = Product.create(
     name: 'Smart Dog Bluetooth Locator Pet GPS Tracker Alarm Remote Wireless Tracker for Pets No Battery', 
     original_price: '$22', 
     transactions: 6000,
@@ -51,10 +74,13 @@ Product.create(
     verified: true,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'dogtracker.jpg',
+    # img_url: 'dogtracker.jpg',
     seller_id: 1)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/dogtracker.jpg')
+    p.photo.attach(io: file, filename: 'dogtracker.jpg')
+
+p = Product.create(
     name: 'Summer Cooling Mats Blanket Ice Silk Pet Dog Bed Sofa Portable Yoga Sleeping Pad For Cats Indoor Cushion', 
     original_price: '$4', 
     transactions: 125,
@@ -62,10 +88,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'DogMat.jpeg',
+    # img_url: 'DogMat.jpeg',
     seller_id: 1)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogMat.jpeg')
+    p.photo.attach(io: file, filename: 'DogMat.jpeg')
+
+p = Product.create(
     name: 'Dogs Swimsuit Dog Vests Bathing SuitSwimming Lifejacket Dog Clothes Pet Supplies', 
     original_price: '$52', 
     transactions: 125,
@@ -73,10 +102,13 @@ Product.create(
     verified: true,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'DogLifeJacket.jpg',
+    # img_url: 'DogLifeJacket.jpg',
     seller_id: 1)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogLifeJacket.jpg')
+    p.photo.attach(io: file, filename: 'DogLifeJacket.jpg')
+
+p = Product.create(
     name: 'Cute Pet Dog Cat Shirt Summer Breathable Vest for Cats Small Dogs Fashion Lettering Polyester Kitten Clothes Puppies Costume', 
     original_price: '$0', 
     transactions: 10002,
@@ -84,10 +116,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: true,
-    img_url: 'DogBoss.jpg',
+    # img_url: 'DogBoss.jpg',
     seller_id: 1)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogBoss.jpg')
+    p.photo.attach(io: file, filename: 'DogBoss.jpg')
+
+p = Product.create(
     name: 'Nylon LED Pet Dog Collar,Night Safety Flashing Glow In The Dark Dog Leash,Dogs Luminous Fluorescent Collars Pet Supplies', 
     original_price: '$0', 
     transactions: 5234,
@@ -95,10 +130,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: true,
-    img_url: 'DogLEDcollar.jpg',
+    # img_url: 'DogLEDcollar.jpg',
     seller_id: 1)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogLEDcollar.jpg')
+    p.photo.attach(io: file, filename: 'DogLEDcollar.jpg')
+
+p = Product.create(
     name: 'Pet Toys Bite-Resistant Voice Toy Balls Large Dogs Golden Retriever Prickly TPR Dog Toy Cleaning Teeth Molar Dog Toy', 
     original_price: '$99', 
     transactions: 111,
@@ -106,11 +144,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'DogChewToy.jpg',
+    # img_url: 'DogChewToy.jpg',
     seller_id: 1)
 
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogChewToy.jpg')
+    p.photo.attach(io: file, filename: 'DogChewToy.jpg')
 
-Product.create(
+p = Product.create(
     name: 'Large Pet Dog Cat Bed Puppy Cushion House Pet Soft Warm Kennel Dog Mat Blanket', 
     original_price: '$8', 
     transactions: 111,
@@ -118,11 +158,14 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'DogBed.jpg',
+    # img_url: 'DogBed.jpg',
     seller_id: 1)
 
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogBed.jpg')
+    p.photo.attach(io: file, filename: 'DogBed.jpg')
+
 # BBQ Stuff
-Product.create(
+p = Product.create(
     name: 'Barbecue Liners Pan Fry Liner Pads Reuseable Baking Mats Non-stick Mats Cooking Tool Sheet Pad', 
     original_price: '$0', 
     transactions: 11111,
@@ -130,10 +173,13 @@ Product.create(
     verified: true,
     fast_shipping: false,
     just_shipping: true,
-    img_url: 'bbq1.jpg',
+    # img_url: 'bbq1.jpg',
     seller_id: 2)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq1.jpg')
+    p.photo.attach(io: file, filename: 'bbq1.jpg')
+
+p = Product.create(
     name: '10pcs Stainless Steel BBQ Utensil Skewers Barbecue Flat Needle Kabob Sticks', 
     original_price: '$40', 
     transactions: 18,
@@ -141,11 +187,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'bbq2.jpg',
+    # img_url: 'bbq2.jpg',
     seller_id: 2)
 
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq2.jpg')
+    p.photo.attach(io: file, filename: 'bbq2.jpg')
 
-Product.create(
+p = Product.create(
     name: 'BBQ Grill Tool Set- 20 Piece Stainless Steel Barbecue Grilling Accessories with Aluminum Case, Spatula, Tongs, Skewers', 
     original_price: '$60', 
     transactions: 149,
@@ -153,10 +201,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'bbq3.jpg',
+    # img_url: 'bbq3.jpg',
     seller_id: 2)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq3.jpg')
+    p.photo.attach(io: file, filename: 'bbq3.jpg')
+
+p = Product.create(
     name: 'BBQ Grill Tool Set- 20 Piece Stainless Steel Barbecue Grilling Accessories with Aluminum Case, Spatula, Tongs, Skewers', 
     original_price: '$60', 
     transactions: 149,
@@ -164,10 +215,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'bbq4.jpeg',
+    # img_url: 'bbq4.jpeg',
     seller_id: 2)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq4.jpeg')
+    p.photo.attach(io: file, filename: 'bbq4.jpeg')
+
+p = Product.create(
     name: '300 Stainless Steel Barbecue BBQ Smoker Grill Thermometer Temperature Gauge', 
     original_price: '$20', 
     transactions: 1493,
@@ -175,11 +229,14 @@ Product.create(
     verified: true,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'bbq5.jpg',
+    # img_url: 'bbq5.jpg',
     seller_id: 2)
 
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq5.jpg')
+    p.photo.attach(io: file, filename: 'bbq5.jpg')
 
-Product.create(
+
+p = Product.create(
     name: 'BBQ Grill Clean Stone Bakeware Cleaning Grill Cleaning', 
     original_price: '$6', 
     transactions: 99,
@@ -187,11 +244,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'bbq6.jpg',
+    # img_url: 'bbq6.jpg',
     seller_id: 2)
 
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq6.jpg')
+    p.photo.attach(io: file, filename: 'bbq6.jpg')
 
-Product.create(
+p = Product.create(
     name: 'Portable Compact Charcoal Barbecue BBQ Grill Cooker Bars Smoker Outdoor Camping', 
     original_price: '$80', 
     transactions: 9,
@@ -199,10 +258,14 @@ Product.create(
     verified: false,
     fast_shipping: true,
     just_shipping: false,
-    img_url: 'bbq7.jpg',
+    # img_url: 'bbq7.jpg',
     seller_id: 2)
 
-Product.create(
+
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq7.jpg')
+    p.photo.attach(io: file, filename: 'bbq7.jpg')
+
+p = Product.create(
     name: 'BBQ Seasoning and Marinade Injector Needle Meat Tenderizer Kitchen Supplies Home Accessories Halloween Christmas Tool Dining Sauces Gadget Cooking Hammers Knife Steak Outdoor Comping BBQ Cooking Baking Tool Barbecue Steak', 
     original_price: '$49', 
     transactions: 136,
@@ -210,10 +273,13 @@ Product.create(
     verified: false,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'bbq8.jpg',
+    # img_url: 'bbq8.jpg',
     seller_id: 2)
 
-Product.create(
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq8.jpg')
+    p.photo.attach(io: file, filename: 'bbq8.jpg')
+
+p = Product.create(
     name: 'Barbecue Security Tools Stamp Hot Stamping Personality Changeable 55 Letters Steak Mold Barbecue Meat BBQ Tool Outdoor', 
     original_price: '30', 
     transactions: 183,
@@ -221,6 +287,7 @@ Product.create(
     verified: true,
     fast_shipping: false,
     just_shipping: false,
-    img_url: 'bbq9.jpeg',
+    # img_url: 'bbq9.jpeg',
     seller_id: 2)
-
+    file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq9.jpeg')
+    p.photo.attach(io: file, filename: 'bbq9.jpeg')

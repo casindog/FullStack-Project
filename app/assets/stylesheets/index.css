@@ -88,11 +88,11 @@
 
 .flyer {
     position: relative;
-    display: flex;
-    justify-content: flex-end;
-    width: 145px;
+    display: inline-flex;
+    justify-content: flex-start;
+    width: 140px;
     height: 20px;
-    left: 85px;
+    left: 90px;
     bottom: 10px;
     background-color: rgb(25, 42, 50);
     color: rgb(248, 250, 251);

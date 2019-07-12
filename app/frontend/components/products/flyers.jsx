@@ -6,7 +6,7 @@ class Flyers extends React.Component {
     }
 
     render() {
-        // debugger
+
         // webpack doesn't like this. why? 
         let flyers;
         if (this.props.product.almost_gone) {

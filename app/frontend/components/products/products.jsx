@@ -19,7 +19,7 @@ class Products extends React.Component {
 
     render() {
         if (this.props.products.length === 0) return null;
-        // debugger
+
         const products = this.props.products.map(product => (
             <div className='index_item_container'>
                 <div className='index_item_img'>

@@ -5,7 +5,7 @@ import Navbar from './navbar'
 
 
 const msp = state => {
-    // debugger
+
     // let x;
     // if (Object.values(state.entities.user)[0] === null) {
     //     x = Object.values(state.entities.user);

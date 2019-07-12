@@ -14,7 +14,7 @@ class NavBar extends React.Component {
     }
 
     render () {
-        // debugger
+
         return(
             <div >
                 <ul className="Navbar">

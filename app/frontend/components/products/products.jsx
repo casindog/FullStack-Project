@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Flyers from './flyers';
 
 class Products extends React.Component {
     constructor(props) {
@@ -18,10 +19,13 @@ class Products extends React.Component {
 
     render() {
         if (this.props.products.length === 0) return null;
-
+        // debugger
         const products = this.props.products.map(product => (
             <div className='index_item_container'>
-                <img className='index_item_img' src={product.photoUrls} />
+                <div className='index_item_img'>
+                    <img src={product.photoUrls} />
+                    <Flyers product={product}/>
+                </div>
                 <div className='index_item_info'>
                     <div className='index-item-top'>{product.original_price}</div>
                     <div className='index-item-bottom'>{product.transactions}+ bought this</div>

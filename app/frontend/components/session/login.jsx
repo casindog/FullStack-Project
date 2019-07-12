@@ -23,7 +23,7 @@ class Login extends React.Component {
 
     handleSubmitDemo(e) {
         e.preventDefault();
-        this.props.login({email: 'Demo@hotmail.com', password: 'password'})
+        this.props.login({email: 'DEMO', password: 'password'})
             .then(() => this.props.closeModal());
     }
 

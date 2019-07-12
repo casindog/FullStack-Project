@@ -22,6 +22,13 @@ require 'open-uri'
 # # attach to user
 # user.avatar.attach(io: file, filename: 'this_users_avatar.jpg')
 
+# demo user
+
+User.create!(
+    email: 'DEMO', 
+    password: 'password'
+)
+
 #Dog StuffDog
 p = Product.create(
     name: 'Vehicle Car Pet Dog Seat Belt Puppy Car Seatbelt Harness Lead Clip Cat Dog Safety Lever Auto Traction', 

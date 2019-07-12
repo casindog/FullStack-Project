@@ -25,7 +25,7 @@ class Signup extends React.Component {
         e.preventDefault();
 
         // wait, i don't understand how this works. 
-        this.props.login({email:'Demo@hotmail.com', password:'password'})
+        this.props.login({email:'DEMO', password:'password'})
            .then(() => this.props.closeModal());
     }
 

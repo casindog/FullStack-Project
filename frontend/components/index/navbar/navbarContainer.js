@@ -5,14 +5,6 @@ import Navbar from './navbar'
 
 
 const msp = state => {
-
-    // let x;
-    // if (Object.values(state.entities.user)[0] === null) {
-    //     x = Object.values(state.entities.user);
-    // } else {
-    //     x = state.entities.user.email;
-    // }    
-
     return {
         modal: state.ui.modal,
         email: state.entities.user.email,

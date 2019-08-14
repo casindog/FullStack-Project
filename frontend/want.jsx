@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let store;
     
     // bootstrapping user to window
-
     if (window.currentUser) {
         const preloadedState = {
             entities: {
@@ -29,9 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // react
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
+
     window.getState = store.getState;
-
-
     window.dispatch = store.dispatch;
     window.logout = logout;
     window.getProducts = getProducts;

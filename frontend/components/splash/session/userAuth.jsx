@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-class Login extends React.Component {
+class UserAuth extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
             password: ''
         };
+        this.toggle = true;
 
         this.handleSubmitDemo = this.handleSubmitDemo.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,13 +25,16 @@ class Login extends React.Component {
     handleSubmitDemo(e) {
         e.preventDefault();
         this.props.login({email: 'DEMO', password: 'password'})
-            .then(() => this.props.closeModal());
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state)
-            .then(() => this.props.closeModal());
+        if (this.toggle) {
+            this.props.login(this.state);
+        } else {
+            this.props.createNewUser(this.state);
+        }
+
     }
 
     renderErrors() {
@@ -44,17 +48,28 @@ class Login extends React.Component {
             </ul>
         )
     }
-
-    ComponentDidMount() {
-    }
     
-    swap () {
-        this.setState({errors: []});
+    swap() {
+        this.setState({ errors: [] });
 
-        this.props.openModal('signup');
+        if (this.toggle) {
+            this.toggle = false;
+        } else {
+            this.toggle = true;
+        }
     }
 
     render() {
+        let msg;
+        let msg1;
+        if (this.toggle) {
+            msg = "Login";
+            msg1 = "New to Wish? Sign up"
+        } else {
+            msg = "Sign up";
+            msg1 = "Have an account? Log in" 
+        }
+
         return (
             <div className='modal'>
                 <div className='modal-rotate-ad'>
@@ -68,7 +83,7 @@ class Login extends React.Component {
 
                 <div className='modal-login'>
                     <div className='modal-title'>
-                        Login
+                        {msg}
                     </div>
 
                     <div className='modal-errors'>
@@ -90,12 +105,12 @@ class Login extends React.Component {
                     </form>
 
                     <div className='modal-buttons'>
-                        <button className='modal-submit' onClick={this.handleSubmit}>Login</button>
+                        <button className='modal-submit' onClick={this.handleSubmit}>{msg}</button>
                         <button className='modal-submit' onClick={this.handleSubmitDemo}>Demo User</button>
                     </div>
 
                     <div className='modal-msg'>
-                        <a href='#' onClick={this.swap}>Don't have an account? Sign up!</a>
+                        <a href='#' onClick={this.swap}> {msg1}</a>
                     </div>
                 </div>
             </div>
@@ -103,4 +118,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default UserAuth;

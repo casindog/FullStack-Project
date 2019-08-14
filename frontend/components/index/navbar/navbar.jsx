@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileModal from '../modal/profile_modal';
+import ProfileModal from './modal/profileModal';
 
 
 class NavBar extends React.Component {

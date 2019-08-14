@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Flyers from './flyers';
+import Flyers from './productFlyers';
 
 class Products extends React.Component {
     constructor(props) {

@@ -1,7 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import ProductsContainer from './productsContainer';
-import NavbarContainer  from '../navbar/navbarContainer';
+import ProductsContainer from './products/productsContainer';
+import NavbarContainer  from './navbar/navbarContainer';
 
 class Index extends React.Component {
     constructor(props) {

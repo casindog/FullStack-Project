@@ -71,46 +71,31 @@ class UserAuth extends React.Component {
         }
 
         return (
-            <div className='modal'>
-                <div className='modal-rotate-ad'>
-                    <div className='modal-prices'>
-                        <div className='modal-rotate-info-strike'>$176</div>
-                        <div className='modal-rotate-info'>$14</div>
-                        <div className='modal-chevron'></div>
+            <div className='splash-box'>
+                <div className='splash-rotate-ad'>
+                    <div className='splash-prices'>
+                        <div className='splash-rotate-info-strike'>$176</div>
+                        <div className='splash-rotate-info'>$14</div>
+                        <div className='splash-chevron'></div>
                     </div>
-                    <img className='modal-rotate-img' src='https://contestimg.wish.com/api/webimage/58a69b26082573593316c166-large.jpg?cache_buster=a9f4cc067e7f45608a805ab881630886'/>
+                    <img src='https://contestimg.wish.com/api/webimage/58a69b26082573593316c166-large.jpg?cache_buster=a9f4cc067e7f45608a805ab881630886'/>
                 </div>
 
-                <div className='modal-login'>
-                    <div className='modal-title'>
+                <div className='splash-login'>
+                    <div className='splash-title'>
                         {msg}
                     </div>
 
-                    <div className='modal-errors'>
+                    <div className='splash-errors'>
                         {this.renderErrors()}
                     </div>
 
-                    <form>
-                        <div className='modal-form'> 
-                            <div className='modal-input-wrapper'>
-                                <label className='modal-label'>Email</label>
-                                <input className='modal-inputs' type="text" value={this.state.email} onChange={this.handleInput('email')} />
-                            </div>  
-
-                            <div className='modal-input-wrapper'>
-                                <label className='modal-label'>Password</label>
-                                <input className='modal-inputs' type="password" value={this.state.password} onChange={this.handleInput('password')} />
-                            </div>
-                        </div>
-                    </form>
-
-                    <div className='modal-buttons'>
-                        <button className='modal-submit' onClick={this.handleSubmit}>{msg}</button>
-                        <button className='modal-submit' onClick={this.handleSubmitDemo}>Demo User</button>
-                    </div>
-
-                    <div className='modal-msg'>
-                        <a href='#' onClick={this.swap}> {msg1}</a>
+                    <div className='splash-input-wrapper'>
+                        <input placeholder="Email Address" type="text" value={this.state.email} onChange={this.handleInput('email')} />
+                        <input placeholder="Password" type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                        <button onClick={this.handleSubmit}>{msg}</button>
+                        <button onClick={this.handleSubmitDemo}>Demo User</button>
+                        <button id="splash-swap" onClick={this.swap}> {msg1}</button>
                     </div>
                 </div>
             </div>

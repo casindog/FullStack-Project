@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
-import { openModal, closeModal } from '../../actions/modal_action';
-import { logout } from '../../actions/session_action';
+import { openModal, closeModal } from '../../../../actions/modal_action';
+import { logout } from '../../../../actions/session_action';
 
 const msp = state => {
     return {

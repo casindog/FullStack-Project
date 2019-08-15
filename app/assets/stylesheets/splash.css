@@ -1,0 +1,141 @@
+.splash {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: "proximanova", sans-serif;
+    background-color: gray;
+}
+
+.splash-box {
+  display: flex;
+  background-color: white;
+  width:700px;
+}
+
+.splash-rotate-ad {
+  width:350px;
+  height: 460px;
+}
+
+.splash-prices {
+  position: relative;
+  top: 6%;
+  z-index: 1;
+}
+
+.splash-rotate-info-strike {
+  background-color: rgb(239,141,46);
+  font-size: 24px;
+  font-weight: 700;
+  padding: 12px;
+  text-decoration: line-through;
+  color: white;
+  float: left;
+}
+
+.splash-rotate-info {
+  background-color: rgb(239,141,46);
+  font-size: 24px;
+  padding: 12px;
+  color: white;
+  float: left;
+}
+
+.splash-chevron {
+  width: 0px;
+  height: 0px;
+  display: inline-block;
+  vertical-align: top;
+  border-style: solid;
+  border-width: 51px 20px 0px 0px;
+  border-color: rgb(239, 141, 46) transparent transparent;
+}
+
+.splash-rotate-ad img {
+  object-fit: contain;
+  width: 93%;
+  height: 93%;
+  position: relative;
+  top: -8%;
+  z-index: 0;
+}
+
+.splash-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 460px;
+}
+
+.splash-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 40px;
+  text-align: center;
+  line-height: 30px;
+  max-width: 100%;
+  padding: 0px 40px 16px 40px;
+  color: rgb(25,42,50);
+  font-family: "proximanova", sans-serif;
+}
+
+.splash-errors {
+  color: red;
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 350px;
+  text-align: center;
+  list-style-type: none;
+}
+
+.splash-errors > ul {
+  list-style-type: none;
+}
+
+.splash-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 300px;
+}
+
+.splash-input-wrapper * {
+    padding: 0px 5px;
+    margin: 5px;
+    color: rgb(25, 42, 50);
+    background-color: rgb(248, 250, 251);
+    box-shadow: 0px 2px 3px -3px inset;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: "proximanova", sans-serif;
+    flex: 1 1 0%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(175, 199, 209);
+    border-image: initial;
+}
+
+.splash-input-wrapper button {
+    color: rgb(255,255,255);
+    background-color: rgb(47,183,236);
+    text-align: center;
+    font-size: 16px;
+}
+
+#splash-swap {
+    background-color: white;
+    text-align: center;
+    border-style: solid;
+    border-color: rgb(47, 183, 236);
+    color: rgb(47, 183, 236);
+    text-align: center;
+}

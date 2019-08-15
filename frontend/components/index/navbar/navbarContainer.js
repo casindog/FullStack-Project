@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
-import { openModal, closeModal } from '../../actions/modal_action';
-import { logout } from '../../actions/session_action';
+import { openModal, closeModal } from '../../../actions/modal_action';
+import { logout } from '../../../actions/session_action';
 import Navbar from './navbar'
 
+// frontend / actions / modal_action.js
+// frontend / actions / modal_action.js
+// frontend / components / index / navbar / navbarContainer.js
+// frontend / components / index / navbar / navbarContainer.js
 
 const msp = state => {
     return {

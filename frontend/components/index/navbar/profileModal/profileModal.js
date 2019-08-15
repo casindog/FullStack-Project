@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeModal, openModal } from '../../../actions/modal_action';
-import ProfileNavBarContainer from '../profile_container';
+import { closeModal, openModal } from '../../../../actions/modal_action';
+import ProfileNavBarContainer from './profileContainer';
 
 function ProfileModal({ modal, closeModal }) {
     if (!modal) {

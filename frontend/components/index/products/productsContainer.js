@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/modal_action';
-import { requestProducts } from '../../actions/products_action';
+import { closeModal } from '../../../actions/modal_action';
+import { requestProducts } from '../../../actions/products_action';
 import Products from './products';
 
 // kc: don't shuffle the index page

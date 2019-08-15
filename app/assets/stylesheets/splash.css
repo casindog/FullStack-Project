@@ -17,12 +17,12 @@
 .splash-box {
   display: flex;
   background-color: white;
-  width:700px;
+  width:800px;
 }
 
 .splash-rotate-ad {
-  width:350px;
-  height: 460px;
+  width:400px;
+  height: 500px;
 }
 
 .splash-prices {
@@ -72,8 +72,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
-    height: 460px;
+    width: 400px;
+    height: 500px;
 }
 
 .splash-title {

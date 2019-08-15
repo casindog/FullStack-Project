@@ -18,13 +18,42 @@ class Products extends React.Component {
 
     render() {
         if (this.props.products.length === 0) return null;
+        
+        let style;
+        let id;
+        let hover;
+
+        if (this.props.css === "splash-background") {
+            style = {
+                display: "flex",
+                flexFlow: "row wrap",
+                justifyContent: "center",
+                padding: '10px',
+                overflow: 'hidden'
+            }
+            id = "splash"
+
+            // shouldn't allow hover magnify on splash background
+            
+        } else {
+            style={
+                display: "flex",
+                flexFlow: "row wrap",
+                justifyContent: "center",
+                padding: '10px',
+            }
+            id = "index"
+
+            // has a 4 item per row limit
+        }
 
         const products = this.props.products.map(product => (
             <div className='index_item_container'>
                 <div className='index_item_img'>
                     <img src={product.photoUrls} />
-                    <Flyers product={product}/>
+                    <Flyers product={product} />
                 </div>
+
                 <div className='index_item_info'>
                     <div className='index-item-top'>{product.original_price}</div>
                     <div className='index-item-bottom'>{product.transactions}+ bought this</div>
@@ -36,32 +65,10 @@ class Products extends React.Component {
         ))
 
         return (
-                <div>
-                    {/* add a component for a second nav bar */}
-                    <div className='MultiView'>
-                        <div>
-                            Popular
-                        </div>
-
-                        <div>
-                            Express
-                        </div>
-
-                        <div>
-                            Recently Viewed
-                        </div>
-
-                        <div>
-                            More
-                        </div>
-                    </div>
-
-                    <div className='products-grid'>
-                        {products}
-                    </div>
-                    {/* how can i have my browser auto load more index_row for infinite scroll? */}
-                </div>
-            )
+            <div className={id} style={style}>
+                {products}
+            </div>
+        )
     }
 }
 

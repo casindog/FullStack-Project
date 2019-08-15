@@ -1,34 +1,63 @@
-.splash {
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 10;
 
+.splash {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     height: 100vh;
     font-family: "proximanova", sans-serif;
-    background-color: gray;
+    background-color: rgba(25, 42, 50, 0.7);
+    z-index: 0;
+}
+
+#title {
+    color: white;
+    font-size: 60px;
+    font-family: "proximanova", sans-serif;
+    z-index: 5;
+}
+
+#userauth {
+    z-index: 5;
+}
+
+#products-background {
+    z-index: 0;
+    position: absolute;
+    overflow: hidden;
+    height: 100vh;
+    opacity: 0.5;
+
+        /* transition: all 0.4s ease 0s;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-delay: 0s; 
+    overflow-y: auto; */
+       
+}
+
+#splash * {
+    padding: 10px;
 }
 
 .splash-box {
   display: flex;
+  justify-content: space-around;
   background-color: white;
-  width:800px;
+  width:750px;
 }
 
 .splash-rotate-ad {
-  width:400px;
+  width:325px;
   height: 500px;
 }
 
 .splash-prices {
   position: relative;
   top: 6%;
-  z-index: 1;
+  left: -5%;
+  z-index: 6;
 }
 
 .splash-rotate-info-strike {
@@ -61,10 +90,11 @@
 
 .splash-rotate-ad img {
   object-fit: contain;
-  width: 93%;
-  height: 93%;
+  width: 96%;
+  height: 96%;
   position: relative;
-  top: -8%;
+  top: -67px;
+  left: -5%;
   z-index: 0;
 }
 
@@ -72,7 +102,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 400px;
+    width: 350px;
     height: 500px;
 }
 

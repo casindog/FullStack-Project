@@ -10,9 +10,28 @@ class Index extends React.Component {
     render() {
 
         return (
-            <div>
+            <div id="index">
                 <NavbarContainer />
-                <ProductsContainer /> 
+
+                <div className='MultiView'>
+                    <div>
+                        Popular
+                    </div>
+
+                    <div>
+                        Express
+                    </div>
+
+                    <div>
+                        Recently Viewed
+                    </div>
+
+                    <div>
+                        More
+                    </div>
+                </div>
+                
+                <ProductsContainer style="index" /> 
             </div>
         )
     }

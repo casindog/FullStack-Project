@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_action';
-import { openModal, closeModal } from '../../actions/modal_action';
+import { requestProducts } from '../../actions/products_action';
+
 import Splash from './splash';
 
 const msp = state => {
     return {
-        modal: state.ui.modal,
+        products: state.entities.products,
         errors: state.errors.session
     }
 }
@@ -13,8 +14,7 @@ const msp = state => {
 const mdp = dispatch => {
     return {
         login: formUser => dispatch(login(formUser)),
-        openModal: modal => dispatch(openModal(modal)),
-        closeModal: () => dispatch(closeModal())
+        requestProducts: () => dispatch(requestProducts())
     }
 }
 export default connect(msp, mdp)(Splash);

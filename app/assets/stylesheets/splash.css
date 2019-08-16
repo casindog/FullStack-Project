@@ -28,7 +28,7 @@
   flex-flow: row wrap;
   justify-content: center;
   padding: 10px;
-  animation: slideshow-background 1000s linear infinite;
+  animation: slideshow-background 200s linear infinite;
 }
 
 #splash-background {
@@ -40,7 +40,7 @@
 
 @keyframes slideshow-background {
   0% {transform: translateY(0%);}
-  100% {transform: translateY(-100%);}
+  100% {transform: translateY(-10000px);}
 }
 
 /* splash Box */

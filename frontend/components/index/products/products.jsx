@@ -19,35 +19,10 @@ class Products extends React.Component {
     render() {
         if (this.props.products.length === 0) return null;
         
-        let style;
         let id;
-        let hover;
+        let style;
 
-        if (this.props.css === "splash-background") {
-            style = {
-                display: "flex",
-                flexFlow: "row wrap",
-                justifyContent: "center",
-                padding: '10px',
-                overflow: 'hidden'
-            }
-            id = "splash"
-
-            // shouldn't allow hover magnify on splash background
-            
-        } else {
-            style={
-                display: "flex",
-                flexFlow: "row wrap",
-                justifyContent: "center",
-                padding: '10px',
-            }
-            id = "index"
-
-            // has a 4 item per row limit
-        }
-
-        const products = this.props.products.map(product => (
+        let products = this.props.products.map(product => (
             <div className='index_item_container'>
                 <div className='index_item_img'>
                     <img src={product.photoUrls} />
@@ -62,10 +37,25 @@ class Products extends React.Component {
                     <div>{product.almost_gone}</div> */}
                 </div>
             </div>
-        ))
+        ));
 
+        if (this.props.css === "splash-products") {
+            // shouldn't allow hover magnify on splash background
+            id = "splash-products";
+            // products.shuffle();
+        } else {
+            id = "index-products";
+            // has a 4 item per row limit
+        };
+
+        // just duplicate seed data like 3 times
+        for (let i = 0; i < 3; i++) {
+            products = products.concat(products);
+        };
+
+        // kc: shuffle items on splash page
         return (
-            <div className={id} style={style}>
+            <div id={id}>
                 {products}
             </div>
         )
@@ -73,3 +63,19 @@ class Products extends React.Component {
 }
 
 export default Products;
+
+
+// kc: shuffle items on splash page
+Array.prototype.shuffle = function () {
+    var input = this;
+
+    for (var i = input.length - 1; i >= 0; i--) {
+
+        var randomIndex = Math.floor(Math.random() * (i + 1));
+        var itemAtIndex = input[randomIndex];
+
+        input[randomIndex] = input[i];
+        input[i] = itemAtIndex;
+    }
+    return input;
+}

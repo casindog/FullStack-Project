@@ -11,6 +11,7 @@ class Index extends React.Component {
 
         return (
             <div id="index">
+
                 <NavbarContainer />
 
                 <div className='MultiView'>
@@ -29,9 +30,15 @@ class Index extends React.Component {
                     <div>
                         More
                     </div>
-                </div>
                 
+                    
+                </div>
+
                 <ProductsContainer style="index" /> 
+
+                {/* infinite scroll if detects like bottom of page */}
+                
+                
             </div>
         )
     }

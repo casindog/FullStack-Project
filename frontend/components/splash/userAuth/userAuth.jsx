@@ -8,23 +8,30 @@ class UserAuth extends React.Component {
             email: '',
             password: ''
         };
+
         this.toggle = true;
+        this.swap = this.swap.bind(this);
 
         this.handleSubmitDemo = this.handleSubmitDemo.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
-        this.swap = this.swap.bind(this)
+    }
+
+    componentDidMount() {
+       
+        // if possible, i'd like to remove the 1st div container, then 
+        // call the css animation @keyframes slideshow
     }
 
     handleInput(type) {
         return (e) => {
             this.setState({ [type]: e.target.value })
-        }
+        };
     }
 
     handleSubmitDemo(e) {
         e.preventDefault();
-        this.props.login({email: 'DEMO', password: 'password'})
+        this.props.login({email: 'DEMO', password: 'password'});
     }
 
     handleSubmit(e) {
@@ -33,9 +40,8 @@ class UserAuth extends React.Component {
             this.props.login(this.state);
         } else {
             this.props.createNewUser(this.state);
-        }
-
-    }
+        };
+    };
 
     renderErrors() {
         return(
@@ -46,8 +52,8 @@ class UserAuth extends React.Component {
                     </li>
                 ))}
             </ul>
-        )
-    }
+        );
+    };
     
     swap() {
         this.setState({ errors: [] });
@@ -56,10 +62,16 @@ class UserAuth extends React.Component {
             this.toggle = false;
         } else {
             this.toggle = true;
-        }
-    }
+        };
+    };
 
     render() {
+        // setTimeout(() => {
+        //     const splashCarousel = document.getElementById('splash-wrapper-carousel');
+        //     // debugger
+        //     splashCarousel.removeChild(splashCarousel.childNodes[0]);
+        // }, 5000);
+
         let msg;
         let msg1;
         if (this.toggle) {
@@ -70,15 +82,31 @@ class UserAuth extends React.Component {
             msg1 = "Have an account? Log in" 
         }
 
-        return (
-            <div className='splash-box'>
-                <div className='splash-rotate-ad'>
+        let productsCarousel = Object.values(this.props.products);
+        
+        productsCarousel = productsCarousel.map((product, idx) => {
+            return (
+                <div>
                     <div className='splash-prices'>
-                        <div className='splash-rotate-info-strike'>$176</div>
-                        <div className='splash-rotate-info'>$14</div>
+                        <div className='splash-rotate-info-strike'>{product.original_price}</div>
+                        {/* will have to dd discount price afterawrd */}
+                        <div className='splash-rotate-info'>{product.original_price}</div>
                         <div className='splash-chevron'></div>
                     </div>
-                    <img src='https://contestimg.wish.com/api/webimage/58a69b26082573593316c166-large.jpg?cache_buster=a9f4cc067e7f45608a805ab881630886'/>
+                    <img idx={idx} src={product.photoUrls} />
+                </div>
+
+            );
+        }).shuffle();
+
+        console.log(productsCarousel.length)
+
+        return (
+            <div id='splash-box'>
+                <div id='splash-rotate-ad'>
+                    <div id="splash-wrapper-carousel">
+                        {productsCarousel}
+                    </div>
                 </div>
 
                 <div className='splash-login'>
@@ -100,7 +128,22 @@ class UserAuth extends React.Component {
                 </div>
             </div>
         )
-    }
+    };
 }
 
 export default UserAuth;
+
+// kc: shuffle items on splash page
+Array.prototype.shuffle = function () {
+    var input = this;
+
+    for (var i = input.length - 1; i >= 0; i--) {
+
+        var randomIndex = Math.floor(Math.random() * (i + 1));
+        var itemAtIndex = input[randomIndex];
+
+        input[randomIndex] = input[i];
+        input[i] = itemAtIndex;
+    }
+    return input;
+}

@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import { createNewUser, login } from '../../../actions/session_action';
 import UserAuth from './userAuth';
 
-const msp = ({ errors }) => {
+const msp = state => {
     return {
-        errors: errors.session
+        products: state.entities.products,
+        errors: state.errors.session
     }
 }
 

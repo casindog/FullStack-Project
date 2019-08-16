@@ -24,10 +24,10 @@ require 'open-uri'
 
 # demo user
 
-User.create!(
-    email: 'DEMO', 
-    password: 'password'
-)
+# User.create!(
+#     email: 'DEMO', 
+#     password: 'password'
+# )
 
 #Dog StuffDog
 p = Product.create(

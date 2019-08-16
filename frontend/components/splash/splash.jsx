@@ -13,43 +13,23 @@ class Splash extends React.Component {
     
     
     render () {
-        let products = Object.values(this.props.products);
-        
-        if (products.length > 0) {
-            products = products.map((product, idx) => {
-                return (
-                    <div idx={idx}>
-                        <img src={product.photoUrls} />
-                    </div>
-                );
-            });
+        return (
+            <div className='splash'>
 
-            for (let i=0; i<3; i++) {
-                products = products.concat(products)
-            };
-
-            return (
-
-                <div className='splash'>
-
-                    <div id="title">
-                        Want
-                    </div>
-
-                    <div id="userauth">
-                        <UserAuthContainer /> 
-                    </div>
-
-                    <div id="products-background">
-                        <ProductsContainer css="splash-background"/>
-                    </div>
+                <div id="title">
+                    Want
                 </div>
 
-            );
-        } else {
-            return null;
-        }
-    };
+                <div id="userauth">
+                    <UserAuthContainer /> 
+                </div>
+
+                <div id="splash-background">
+                    <ProductsContainer css="splash-products"/>
+                </div>
+            </div>
+        );
+    } 
 };
 
 export default Splash; 

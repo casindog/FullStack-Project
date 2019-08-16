@@ -1,13 +1,15 @@
 
 .splash {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    font-family: "proximanova", sans-serif;
-    background-color: rgba(25, 42, 50, 0.7);
-    z-index: 0;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "proximanova", sans-serif;
+  background-color: rgba(25, 42, 50, 0.7);
+  z-index: 0;
 }
 
 #title {
@@ -21,42 +23,81 @@
     z-index: 5;
 }
 
-#products-background {
+#splash-products {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 10px;
+  animation: slideshow-background 1000s linear infinite;
+}
+
+#splash-background {
     z-index: 0;
     position: absolute;
     overflow: hidden;
-    height: 100vh;
     opacity: 0.5;
-
-        /* transition: all 0.4s ease 0s;
-    transition-property: all;
-    transition-duration: 0.4s;
-    transition-timing-function: ease;
-    transition-delay: 0s; 
-    overflow-y: auto; */
-       
 }
 
-#splash * {
-    padding: 10px;
+@keyframes slideshow-background {
+  0% {transform: translateY(0%);}
+  100% {transform: translateY(-100%);}
 }
 
-.splash-box {
+/* splash Box */
+
+#splash-box {
   display: flex;
   justify-content: space-around;
   background-color: white;
-  width:750px;
+  width:700px;
 }
 
-.splash-rotate-ad {
-  width:325px;
+#splash-rotate-ad {
+  width:300px;
   height: 500px;
+  top: 37px;
+  left: -6px;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideshow {
+  0% {transform: translateX(0%);}
+  50% {transform: translateX(-300px);}
+  100% {transform: translateX(-600px);}
+  /* 3% {transform: translateX(-900px);}
+  4% {transform: translateX(-1200px);}
+  5% {transform: translateX(-1500px);}
+  6% {transform: translateX(-1800px);}
+  7% {transform: translateX(-2100px);}
+  8% {transform: translateX(-2400px);}
+  9% {transform: translateX(-2700px);}
+  10% {transform: translateX(-3000px);} */
+}
+
+/* i'd like to set an animation every 3 seconds to change a picture */
+#splash-wrapper-carousel {
+  animation: slideshow;
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  animation-delay: 5s;
+  animation-duration: 10s;
+  animation-iteration-count: 1;
+  /* forwards doesn't work b/c animation will still reset */
+  animation-fill-mode: forwards;
+}
+
+#splash-wrapper-carousel img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
 }
 
 .splash-prices {
   position: relative;
-  top: 6%;
-  left: -5%;
+  top: 20px;
+  display: flex;
   z-index: 6;
 }
 
@@ -88,15 +129,7 @@
   border-color: rgb(239, 141, 46) transparent transparent;
 }
 
-.splash-rotate-ad img {
-  object-fit: contain;
-  width: 96%;
-  height: 96%;
-  position: relative;
-  top: -67px;
-  left: -5%;
-  z-index: 0;
-}
+/* RHS of splashbox */
 
 .splash-login {
     display: flex;

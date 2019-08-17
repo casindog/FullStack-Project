@@ -16,7 +16,11 @@ class Index extends React.Component {
 
                 <div className='MultiView'>
                     <div>
-                        Popular
+                        Dogs
+                    </div>
+
+                    <div>
+                        Barbecue
                     </div>
 
                     <div>
@@ -26,15 +30,10 @@ class Index extends React.Component {
                     <div>
                         Recently Viewed
                     </div>
-
-                    <div>
-                        More
-                    </div>
-                
                     
                 </div>
 
-                <ProductsContainer style="index" /> 
+                <ProductsContainer purpose="index" /> 
 
                 {/* infinite scroll if detects like bottom of page */}
                 

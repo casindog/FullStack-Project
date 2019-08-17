@@ -19,8 +19,14 @@
     z-index: 5;
 }
 
-#userauth {
+#splash-box1 {
     z-index: 5;
+}
+
+.splash-item-container {
+    width: 230px;
+    height: 290px;
+    padding: 10px;
 }
 
 #splash-products {
@@ -45,7 +51,7 @@
 
 /* splash Box */
 
-#splash-box {
+#splash-box2 {
   display: flex;
   justify-content: space-around;
   background-color: white;
@@ -63,16 +69,16 @@
 
 @keyframes slideshow {
   0% {transform: translateX(0%);}
-  50% {transform: translateX(-300px);}
-  100% {transform: translateX(-600px);}
-  /* 3% {transform: translateX(-900px);}
-  4% {transform: translateX(-1200px);}
-  5% {transform: translateX(-1500px);}
-  6% {transform: translateX(-1800px);}
-  7% {transform: translateX(-2100px);}
-  8% {transform: translateX(-2400px);}
-  9% {transform: translateX(-2700px);}
-  10% {transform: translateX(-3000px);} */
+  10% {transform: translateX(-300px);}
+  20% {transform: translateX(-600px);}
+  30% {transform: translateX(-900px);}
+  40% {transform: translateX(-1200px);}
+  50% {transform: translateX(-1500px);}
+  60% {transform: translateX(-1800px);}
+  70% {transform: translateX(-2100px);}
+  80% {transform: translateX(-2400px);}
+  90% {transform: translateX(-2700px);}
+  100% {transform: translateX(-3000px);}
 }
 
 /* i'd like to set an animation every 3 seconds to change a picture */
@@ -82,8 +88,12 @@
   height: 100%;
   width: fit-content;
   animation-delay: 5s;
-  animation-duration: 10s;
+  animation-duration: 50s;
   animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  /* animation-timing-function: step-start; */
+  /* animation-timing-function: cubic-bezier(1, 0.0, 1, 1); */
+
   /* forwards doesn't work b/c animation will still reset */
   animation-fill-mode: forwards;
 }

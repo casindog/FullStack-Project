@@ -4,35 +4,13 @@ import Flyers from './Flyers';
 class Products extends React.Component {
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {loading: true};
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-    }
+    splashProducts() {
+        // shouldn't allow hover magnify on splash background
 
-    componentDidMount () {
-        // scroll down on index page.
-        window.addEventListener('mouseevent', function getMoreProducts (e) {
-            products = products.concat(products.slice(20,40));
-        })
-    }
-
-    splashOrIndex() {
-        if (this.props.purpose === "splash-products") {
-            this.id = "splash-products";
-            // shouldn't allow hover magnify on splash background
-            this.id2 = "splash-item-container"
-        } else {
-            this.id = "index-products";
-            this.id2 = "index_item_container"
-            // limit to show 20 first, then on scroll down detect, show another 20l
-            // this.products = this.products.slice(0, 20);
-        };
-
-        let products = this.props.products.map(product => (
-            <div className={this.id2}>
+        let products = this.props.products.map((product,idx) => (
+            <div className="splash-item-container" key={idx}>
                 <div className='index_item_img'>
                     <img src={product.photoUrls} />
                     <Flyers product={product} />
@@ -48,22 +26,18 @@ class Products extends React.Component {
             </div>
         ));
 
-        // duplicate seed data 3 times
-        for (let i = 0; i < 3; i++) {
-            products = products.concat(products);
-        };
+        // shuffle products on splash page
+        products = products.shuffle();
 
-        if (this.props.purpose === "splash-products") products = products.shuffle();
         return products
     }
 
     render() {
         if (this.props.products.length === 0) return null;
 
-        let products = this.splashOrIndex();
-
+        let products = this.splashProducts();
         return (
-            <div id={this.id}>
+            <div id="splash-products">
                 {products}
             </div>
         )

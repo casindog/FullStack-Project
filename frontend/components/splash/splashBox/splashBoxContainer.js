@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createNewUser, login } from '../../../actions/session_action';
-import UserAuth from './userAuth';
+import SplashBox from './splashBox';
 
 const msp = state => {
     return {
@@ -14,4 +14,4 @@ const mdp = dispatch => ({
     createNewUser: formUser => dispatch(createNewUser(formUser)),
 })
 
-export default connect(msp, mdp)(UserAuth);
+export default connect(msp, mdp)(SplashBox);

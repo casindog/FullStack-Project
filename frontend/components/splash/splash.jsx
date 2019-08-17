@@ -1,6 +1,6 @@
 import React from 'react';
-import UserAuthContainer from './userAuth/userAuthContainer';
-import ProductsContainer from '../index/products/productsContainer';
+import SplashBoxContainer from './splashBox/splashBoxContainer';
+import SplashProductsContainer from './products/productsContainer';
 
 class Splash extends React.Component {
     constructor(props) {
@@ -20,12 +20,12 @@ class Splash extends React.Component {
                     Want
                 </div>
 
-                <div id="userauth">
-                    <UserAuthContainer /> 
+                <div id="splash-box1">
+                    <SplashBoxContainer /> 
                 </div>
 
                 <div id="splash-background">
-                    <ProductsContainer css="splash-products"/>
+                    <SplashProductsContainer purpose="splash-products"/>
                 </div>
             </div>
         );

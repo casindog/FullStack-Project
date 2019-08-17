@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-class UserAuth extends React.Component {
+class SplashBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +18,6 @@ class UserAuth extends React.Component {
     }
 
     componentDidMount() {
-       
         // if possible, i'd like to remove the 1st div container, then 
         // call the css animation @keyframes slideshow
     }
@@ -66,12 +65,6 @@ class UserAuth extends React.Component {
     };
 
     render() {
-        // setTimeout(() => {
-        //     const splashCarousel = document.getElementById('splash-wrapper-carousel');
-        //     // debugger
-        //     splashCarousel.removeChild(splashCarousel.childNodes[0]);
-        // }, 5000);
-
         let msg;
         let msg1;
         if (this.toggle) {
@@ -86,7 +79,7 @@ class UserAuth extends React.Component {
         
         productsCarousel = productsCarousel.map((product, idx) => {
             return (
-                <div>
+                <div key={idx}>
                     <div className='splash-prices'>
                         <div className='splash-rotate-info-strike'>{product.original_price}</div>
                         {/* will have to dd discount price afterawrd */}
@@ -99,10 +92,8 @@ class UserAuth extends React.Component {
             );
         }).shuffle();
 
-        console.log(productsCarousel.length)
-
         return (
-            <div id='splash-box'>
+            <div id="splash-box2">
                 <div id='splash-rotate-ad'>
                     <div id="splash-wrapper-carousel">
                         {productsCarousel}
@@ -131,7 +122,7 @@ class UserAuth extends React.Component {
     };
 }
 
-export default UserAuth;
+export default SplashBox;
 
 // kc: shuffle items on splash page
 Array.prototype.shuffle = function () {

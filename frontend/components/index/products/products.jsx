@@ -5,7 +5,10 @@ class Products extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {loading: true};
+        this.infiniteScroll = this.infiniteScroll.bind(this);
+        this.state = {
+            counter: 17
+        };
     }
 
     handleSubmit(e) {
@@ -13,26 +16,39 @@ class Products extends React.Component {
     }
 
     componentDidMount () {
+        // kc: for a real infinite loop, i'd ping the server for 21 new products.
+        // however, since this is a small clone of the real site, it is easier
+        // to fetch all the products of ~200 products, and only show the next 21 products on event listener
+
         // scroll down on index page.
-        window.addEventListener('mouseevent', function getMoreProducts (e) {
-            products = products.concat(products.slice(20,40));
-        })
+        window.addEventListener('scroll', this.infiniteScroll);
     }
 
-    splashOrIndex() {
-        if (this.props.purpose === "splash-products") {
-            this.id = "splash-products";
-            // shouldn't allow hover magnify on splash background
-            this.id2 = "splash-item-container"
-        } else {
-            this.id = "index-products";
-            this.id2 = "index_item_container"
-            // limit to show 20 first, then on scroll down detect, show another 20l
-            // this.products = this.products.slice(0, 20);
+    infiniteScroll(e) {
+        // let rect = document.getElementById('root').getBoundingClientRect();
+        // console.log(`scrollH: ${document.scrollingElement.scrollHeight}`);
+        // console.log(`scrollT: ${document.scrollingElement.scrollTop}`);
+        // console.log(`clientH: ${document.scrollingElement.clientHeight}`);
+        // console.log(`scrollH-scrollT-clientH: ${document.scrollingElement.scrollHeight - document.scrollingElement.scrollTop - document.scrollingElement.clientHeight}`)
+
+        // console.log("-----------")
+
+        if (document.scrollingElement.scrollHeight 
+            - document.scrollingElement.scrollTop
+            - document.scrollingElement.clientHeight < 50) {
+            this.setState(() => {
+                return { counter: this.state.counter + 17 }
+            });
         };
 
-        let products = this.props.products.map(product => (
-            <div className={this.id2}>
+    }
+
+    indexProducts() {
+        // limit to show 21 first, then on scroll down detect, show another 21l
+        // this.products = this.products.slice(0, 21);
+
+        let products = this.props.products.map((product,idx) => (
+            <div className="index_item_container" key={idx}>
                 <div className='index_item_img'>
                     <img src={product.photoUrls} />
                     <Flyers product={product} />
@@ -48,42 +64,20 @@ class Products extends React.Component {
             </div>
         ));
 
-        // duplicate seed data 3 times
-        for (let i = 0; i < 3; i++) {
-            products = products.concat(products);
-        };
-
-        if (this.props.purpose === "splash-products") products = products.shuffle();
         return products
     }
 
     render() {
-        if (this.props.products.length === 0) return null;
-
-        let products = this.splashOrIndex();
+        let products = this.indexProducts().slice(0,this.state.counter)
 
         return (
-            <div id={this.id}>
-                {products}
+            <div style={{ backgroundColor: "rgb(248, 250, 251)"}}>
+                <div id="index-products">
+                    {products}
+                </div>
             </div>
         )
     }
 }
 
 export default Products;
-
-
-// kc: shuffle items on splash page
-Array.prototype.shuffle = function () {
-    var input = this;
-
-    for (var i = input.length - 1; i >= 0; i--) {
-
-        var randomIndex = Math.floor(Math.random() * (i + 1));
-        var itemAtIndex = input[randomIndex];
-
-        input[randomIndex] = input[i];
-        input[i] = itemAtIndex;
-    }
-    return input;
-}

@@ -10,10 +10,8 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    // logout: () => dispatch(logout())
     closeModal: () => dispatch(closeModal()),
     requestProducts: () => dispatch(requestProducts())
-
 })
 
 export default connect(msp, mdp)(Products);

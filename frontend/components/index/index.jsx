@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductsContainer from './products/productsContainer';
+import IndexProductsContainer from './products/productsContainer';
 import NavbarContainer  from './navbar/navbarContainer';
 
 class Index extends React.Component {
@@ -7,7 +7,12 @@ class Index extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.requestProducts();
+    }
+
     render() {
+        if (this.props.products.length === 0) return null;
 
         return (
             <div id="index">
@@ -33,11 +38,7 @@ class Index extends React.Component {
                     
                 </div>
 
-                <ProductsContainer purpose="index" /> 
-
-                {/* infinite scroll if detects like bottom of page */}
-                
-                
+                <IndexProductsContainer purpose="index" />             
             </div>
         )
     }

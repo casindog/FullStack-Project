@@ -7,8 +7,11 @@ class Products extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.infiniteScroll = this.infiniteScroll.bind(this);
         this.state = {
-            counter: 17
+            counter: 13,
+            loading: false
         };
+        this.oneTime = 0;
+        // this.oneTime = this.oneTime.bind(this);
     }
 
     handleSubmit(e) {
@@ -24,6 +27,17 @@ class Products extends React.Component {
         window.addEventListener('scroll', this.infiniteScroll);
     }
 
+    componentDidUpdate() {
+
+        window.addEventListener('scroll', this.infiniteScroll);
+    //     this.setState = (() => { 
+    //       return {
+    //             counter: this.state.counter,
+    //             loading: false
+    //         };
+    //     }) ;
+    }
+
     infiniteScroll(e) {
         // let rect = document.getElementById('root').getBoundingClientRect();
         // console.log(`scrollH: ${document.scrollingElement.scrollHeight}`);
@@ -33,12 +47,35 @@ class Products extends React.Component {
 
         // console.log("-----------")
 
+        // use a setTimeout for now until I can rework the backend.
+        // recruiter would not be able to identify the infinite scroll 
+        // b/c it works too fast
         if (document.scrollingElement.scrollHeight 
             - document.scrollingElement.scrollTop
-            - document.scrollingElement.clientHeight < 50) {
+            - document.scrollingElement.clientHeight < 50 &&
+            this.oneTime === 0) {
+
+            window.removeEventListener('scroll', this.infiniteScroll);
+            
             this.setState(() => {
-                return { counter: this.state.counter + 17 }
+                return {
+                    counter: this.state.counter,
+                    loading: true
+                };
             });
+            
+            setTimeout(() => {
+                this.setState(() => {
+                    // debugger
+                    this.oneTime = 0;
+                    return { 
+                        counter: this.state.counter + 13,
+                        loading: false
+                    };
+                });
+                
+            },2000);
+            this.oneTime += 1
         };
 
     }
@@ -68,13 +105,15 @@ class Products extends React.Component {
     }
 
     render() {
-        let products = this.indexProducts().slice(0,this.state.counter)
+        let products = this.indexProducts().slice(0,this.state.counter);
 
         return (
-            <div style={{ backgroundColor: "rgb(248, 250, 251)"}}>
+            <div style={{ backgroundColor: "rgb(248, 250, 251)", display: "flex", alignItems: "center", flexDirection: "column"}}>
                 <div id="index-products">
                     {products}
                 </div>
+
+                {this.state.loading ? <div id="infinite-load"> </div> : null}
             </div>
         )
     }

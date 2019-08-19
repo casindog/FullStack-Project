@@ -10,7 +10,7 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    requestProducts: () => dispatch(requestProducts())
+    requestProducts: (data) => dispatch(requestProducts(data))
 })
 
 export default connect(msp, mdp)(Index);

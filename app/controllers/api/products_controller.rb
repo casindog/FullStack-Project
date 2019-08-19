@@ -6,4 +6,8 @@ class Api::ProductsController < ApplicationController
     # write methods to fetch only 20 more products from the db?
 
     # search/view
+
+    def show
+
+    end
 end

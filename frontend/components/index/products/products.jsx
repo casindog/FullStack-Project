@@ -30,12 +30,6 @@ class Products extends React.Component {
     componentDidUpdate() {
 
         window.addEventListener('scroll', this.infiniteScroll);
-    //     this.setState = (() => { 
-    //       return {
-    //             counter: this.state.counter,
-    //             loading: false
-    //         };
-    //     }) ;
     }
 
     infiniteScroll(e) {
@@ -52,7 +46,7 @@ class Products extends React.Component {
         // b/c it works too fast
         if (document.scrollingElement.scrollHeight 
             - document.scrollingElement.scrollTop
-            - document.scrollingElement.clientHeight < 50 &&
+            - document.scrollingElement.clientHeight < 15 &&
             this.oneTime === 0) {
 
             window.removeEventListener('scroll', this.infiniteScroll);
@@ -66,7 +60,6 @@ class Products extends React.Component {
             
             setTimeout(() => {
                 this.setState(() => {
-                    // debugger
                     this.oneTime = 0;
                     return { 
                         counter: this.state.counter + 13,

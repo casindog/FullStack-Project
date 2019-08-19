@@ -10,7 +10,6 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    closeModal: () => dispatch(closeModal()),
     requestProducts: () => dispatch(requestProducts())
 })
 

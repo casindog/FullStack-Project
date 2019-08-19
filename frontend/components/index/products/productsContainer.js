@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { closeModal } from '../../../actions/modal_action';
 import { requestProducts } from '../../../actions/products_action';
 import Products from './products';
 
@@ -10,7 +9,6 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    closeModal: () => dispatch(closeModal()),
     requestProducts: () => dispatch(requestProducts())
 })
 

@@ -30,8 +30,6 @@ class Products extends React.Component {
             </div>
         ));
 
-        // postgresQL returns an extra element with the function information, so pop one off
-        products.pop();
         return products
     }
 

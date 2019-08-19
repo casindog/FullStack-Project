@@ -11,14 +11,11 @@ class Index extends React.Component {
             endIdx: 13,
             loading: false
         };
-        this.oneTime = 0;
     }
 
     componentDidMount() {
         // kc: for a real infinite loop, i'd ping the server for 13 new products.
         // scroll down on index page.
-        window.addEventListener('scroll', this.infiniteScroll);
-
         this.props.requestProducts(
             { products: {
                 startIdx: 0,
@@ -26,9 +23,6 @@ class Index extends React.Component {
                 }
             }
         );
-    }
-
-    componentDidUpdate() {
         window.addEventListener('scroll', this.infiniteScroll);
     }
 
@@ -40,45 +34,43 @@ class Index extends React.Component {
         // console.log(`scrollH-scrollT-clientH: ${document.scrollingElement.scrollHeight - document.scrollingElement.scrollTop - document.scrollingElement.clientHeight}`)
         // console.log("-----------")
 
-        // use a setTimeout for now until I can rework the backend.
-        // recruiter would not be able to identify the infinite scroll 
-        // b/c it works too fast
         if (document.scrollingElement.scrollHeight
             - document.scrollingElement.scrollTop
             - document.scrollingElement.clientHeight < 15 &&
-            this.oneTime === 0) {
+            !this.state.loading) {
 
             window.removeEventListener('scroll', this.infiniteScroll);
 
-            this.setState(() => {
+            this.setState((prevState) => {
                 return {
-                    startIdx: this.state.startIdx,
-                    endIdx: this.state.endIdx,
+                    startIdx: prevState.startIdx+13,
+                    endIdx: prevState.endIdx+13,
                     loading: true
                 };
+            }, () => {
+                setTimeout(() => {
+
+                    this.props.requestProducts({
+                        products: { startIdx: this.state.startIdx, endIdx: this.state.endIdx }
+                    }).then(() => {
+                        this.setState(prevState => {
+                            return {
+                                startIdx: prevState.startIdx,
+                                endIdx: prevState.endIdx,
+                                loading: false
+                            };
+                        })
+                    }).then(() => {
+                        window.addEventListener('scroll', this.infiniteScroll);
+                    })
+                }, 1000);
             });
-
-
-            this.props.requestProducts({ 
-                products: {startIdx: this.state.startIdx, endIdx: this.state.endIdx }
-                }).then(() => {
-                    this.setState(() => {
-                    this.oneTime = 0;
-                    return {
-                        startIdx: this.state.startIdx + 13,
-                        endIdx: this.state.endIdx + 13,
-                        loading: false
-                    };
-                });
-            });
-
-            this.oneTime += 1
         };
     }
 
     render() {
         if (this.props.products.length === 0) return null;
-            
+
         return (
             <div id="index">
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestProducts } from '../../../actions/products_action';
+// import { requestProducts } from '../../../actions/products_action';
 import Products from './products';
 
 const msp = state => {
@@ -9,7 +9,7 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    requestProducts: (data) => dispatch(requestProducts(data))
+    // requestProducts: (data) => dispatch(requestProducts(data))
 })
 
 export default connect(msp, mdp)(Products);

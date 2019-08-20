@@ -38,7 +38,7 @@ class NavBar extends React.Component {
                     <div className='Nav-Right'>
                         <div className='Nav-Right-items'>
                             <form className='Nav-Search-Input' onSubmit={this.handleSubmit}>
-                                <input value={this.state.search} onChange={this.handleInput} >
+                                <input style={{width: "200px"}} value={this.state.search} onChange={this.handleInput} >
 
                                 </input>
 
@@ -51,7 +51,6 @@ class NavBar extends React.Component {
                             </div>
                         ) : (
                             <div className='Nav-Right'>
-             
                                 <div className='Nav-portrait' onClick={() => this.props.openModal('profile')}>
                                     <ProfileModal/>
                                     <img className='Nav-portrait-img' src="https://contestimg.wish.com/api/image/fetch?profile_image_name=NTYwNWMxYmEyMWE4NjMxNzk0ZTk1NDUy_1398450030237.jpg&w=50&h=50" alt=""/>

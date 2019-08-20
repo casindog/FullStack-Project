@@ -1,7 +1,7 @@
 import React from 'react';
 import IndexProductsContainer from './products/productsContainer';
 import NavbarContainer  from './navbar/navbarContainer';
-import FilterViewContainer from './filterView/FilterViewContainer'
+import FilterViewContainer from './filterView/filterViewContainer'
 
 class Index extends React.Component {
     constructor(props) {

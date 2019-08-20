@@ -1,7 +1,5 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { isAbsolute } from 'path';
-
 
 class FilterView extends React.Component {
     constructor(props) {

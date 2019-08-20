@@ -34,19 +34,20 @@
   flex-flow: row wrap;
   justify-content: center;
   padding: 10px;
-  animation: slideshow-background 200s linear infinite;
+  animation: slideshow-background 60s linear infinite;
 }
 
 #splash-background {
-    z-index: 0;
-    position: absolute;
-    overflow: hidden;
-    opacity: 0.5;
+  z-index: 0;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0.5;
 }
 
 @keyframes slideshow-background {
   0% {transform: translateY(0%);}
-  100% {transform: translateY(-10000px);}
+  100% {transform: translateY(-5250px);}
+  
 }
 
 /* splash Box */
@@ -89,7 +90,7 @@
   width: fit-content;
   animation-delay: 5s;
   animation-duration: 50s;
-  animation-iteration-count: 1;
+  animation-iteration-count: 10;
   animation-timing-function: ease-in-out;
   /* animation-timing-function: step-start; */
   /* animation-timing-function: cubic-bezier(1, 0.0, 1, 1); */

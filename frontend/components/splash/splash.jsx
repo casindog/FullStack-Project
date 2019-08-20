@@ -8,11 +8,19 @@ class Splash extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestProducts();
+        this.props.requestProducts(
+            { products: {
+                startIdx: 0,
+                endIdx: 150
+                }
+            }
+        );
     }
     
     
     render () {
+        if (Object.keys(this.props.products).length===0) return null;
+
         return (
             <div className='splash'>
 

@@ -14,7 +14,7 @@ const msp = state => {
 const mdp = dispatch => {
     return {
         login: formUser => dispatch(login(formUser)),
-        requestProducts: () => dispatch(requestProducts())
+        requestProducts: (data) => dispatch(requestProducts(data))
     }
 }
 export default connect(msp, mdp)(Splash);

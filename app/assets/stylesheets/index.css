@@ -9,19 +9,25 @@
     display: flex;
     align-items: center;
     justify-content: center;   
+    flex-direction: column;
     border-bottom: 1px solid rgb(240, 245, 247);
+    text-align: center;
 }
 
-.MultiView div {
-    margin: 0px 0px;
-    padding: 0px 20px;
+.MultiView > div {
+    display: flex;
+    flex-direction: row;
     color: rgb(25, 42, 50);
     font-size: 16px;
     font-weight: 700;
     font-family: "proximanova", sans-serif;
 }
 
-.MultiView div:hover{
+.FilterView {
+    width: 125px;
+}
+
+.FilterView:hover{
     transform:scale(1.05)
 }
 

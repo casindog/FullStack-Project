@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import { isAbsolute } from 'path';
 
 
 class FilterView extends React.Component {
@@ -134,19 +135,59 @@ class FilterView extends React.Component {
     render() {
         if (this.props.products.length === 0) return null;
 
+        let selectedStyle = {
+            height: "5px", 
+            backgroundColor: "rgb(47, 183, 236)", 
+            width: "125px",
+            bottom: "-14px",
+            position: "relative"
+        }
+
+        let blankStyle = {
+            height: "5px",
+            width: "125px",
+            bottom: "-14px",
+            position: "relative"
+        }
+
+        let slider = new Array(3);
+        for (let i=0; i<3; i++) {
+            slider[i] = <div key={i} style={selectedStyle}></div>
+        }
+
+        // debugger    
+        // dumbfounded why this doesn't work.
+        // if (this.props.filterView.view = "all") {
+        //     slider[0] = <div key={0} style={selectedStyle}></div>
+        // } else if (this.props.filterView.view = "dog") {
+        //     slider[1] = <div key={1} style={selectedStyle}></div>
+        // } else if (this.props.filterView.view = "bbq") {
+        //     slider[2] = <div key={2} style={selectedStyle}></div>
+        // }
+
         return (
             <div className='MultiView'>
-                <div onClick={() => this.handleClick(event, "all")}>
-                    Popular
+                <div>
+                    <div className="FilterView" onClick={() => this.handleClick(event, "all")}>
+                        {/* add a star */}
+                        Popular
+                    </div>
+
+                    <div className="FilterView" onClick={() => {this.handleClick(event,"dog")}}>
+                        {/* add a dog */}
+                        Dogs
+                    </div>
+
+                    <div className="FilterView" onClick={() => { this.handleClick(event, "bbq") }}>
+                        {/* add a barbecue */}
+                        Barbecue
+                    </div>
                 </div>
 
-                <div onClick={() => {this.handleClick(event,"dog")}}>
-                    Dogs
+                <div>
+                    {slider}
                 </div>
 
-                <div onClick={() => { this.handleClick(event, "bbq") }}>
-                    Barbecue
-                </div>
 
                 {/* develop after career fair  */}
                 {/* <div onClick={this.handleClick}>

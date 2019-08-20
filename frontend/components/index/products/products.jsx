@@ -36,6 +36,8 @@ class Products extends React.Component {
 
     render() {
         let products = this.indexProducts();
+        if (Object.keys(this.props.products).length === 150) products = products.slice(0,13);
+        
         return (
             <div id="index-products">                
                 {products}

@@ -12,9 +12,10 @@ class SplashBox extends React.Component {
         this.toggle = true;
         this.swap = this.swap.bind(this);
 
+        this.handleInputEmail = this.handleInputEmail.bind(this);
+        this.handleInputPassword = this.handleInputPassword.bind(this);
         this.handleSubmitDemo = this.handleSubmitDemo.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInput = this.handleInput.bind(this);
     }
 
     componentDidMount() {
@@ -22,10 +23,13 @@ class SplashBox extends React.Component {
         // call the css animation @keyframes slideshow
     }
 
-    handleInput(type) {
-        return (e) => {
-            this.setState({ [type]: e.target.value })
-        };
+    handleInputEmail(e) {
+        e.preventDefault();
+        this.setState({ email: e.target.value })
+    }
+    handleInputPassword(e) {
+        e.preventDefault();
+        this.setState({ password: e.target.value })
     }
 
     handleSubmitDemo(e) {
@@ -35,6 +39,7 @@ class SplashBox extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         if (this.toggle) {
             this.props.login(this.state);
         } else {
@@ -90,7 +95,7 @@ class SplashBox extends React.Component {
                 </div>
 
             );
-        }).shuffle();
+        });
 
         return (
             <div id="splash-box2">
@@ -110,8 +115,8 @@ class SplashBox extends React.Component {
                     </div>
 
                     <div className='splash-input-wrapper'>
-                        <input placeholder="Email Address" type="text" value={this.state.email} onChange={this.handleInput('email')} />
-                        <input placeholder="Password" type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                        <input placeholder="Email Address" type="text" value={this.state.email} onChange={this.handleInputEmail} />
+                        <input placeholder="Password" type="password" value={this.state.password} onChange={this.handleInputPassword} />
                         <button onClick={this.handleSubmit}>{msg}</button>
                         <button onClick={this.handleSubmitDemo}>Demo User</button>
                         <button id="splash-swap" onClick={this.swap}> {msg1}</button>
@@ -123,18 +128,3 @@ class SplashBox extends React.Component {
 }
 
 export default SplashBox;
-
-// kc: shuffle items on splash page
-Array.prototype.shuffle = function () {
-    var input = this;
-
-    for (var i = input.length - 1; i >= 0; i--) {
-
-        var randomIndex = Math.floor(Math.random() * (i + 1));
-        var itemAtIndex = input[randomIndex];
-
-        input[randomIndex] = input[i];
-        input[i] = itemAtIndex;
-    }
-    return input;
-}

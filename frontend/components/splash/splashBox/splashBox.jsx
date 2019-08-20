@@ -39,7 +39,6 @@ class SplashBox extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         if (this.toggle) {
             this.props.login(this.state);
         } else {

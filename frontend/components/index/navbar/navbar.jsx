@@ -31,7 +31,7 @@ class NavBar extends React.Component {
                 <ul className="Navbar">
                     <div className='Nav-Left'>
                         <div className='Nav-Left-items'>
-                            <a href="#">Want</a>
+                            Want
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@ class NavBar extends React.Component {
                                 </div>
 
                                 <div className='Nav-Right-items'>
-                                    <a href="#">Cart</a>
+                                    Cart
                                 </div>
 
                                 {/* <div className='Nav-Right-items'>

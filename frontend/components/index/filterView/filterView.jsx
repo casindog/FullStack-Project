@@ -14,9 +14,7 @@ class FilterView extends React.Component {
     }
 
     componentDidMount() {
-        // kc: for a real infinite loop, i'd ping the server for 13 new products.
         this.props.changeFilterView({ view: "all", loading: false });
-
         this.props.requestProducts(
             {
                 products: {
@@ -127,7 +125,6 @@ class FilterView extends React.Component {
                 });
             });
 
-
         } else if (tag ==="dog" && this.props.filterView.view !== "dog" ||
                     tag ==="bbq" && this.props.filterView.view !== "bbq") {
             
@@ -157,7 +154,7 @@ class FilterView extends React.Component {
             bottom: "-4px",
             position: "relative"
         }
-        
+
         let selectedStyle = {
             height: "5px",
             width: "125px",
@@ -166,52 +163,58 @@ class FilterView extends React.Component {
             backgroundColor: "rgb(47,183,236)"
         }
 
-        let sliderRender = new Array(3);
+        // confused why this doesn't work.
+        // let that = this;
+
+        // window.addEventListener('DOMContentLoaded', (e) => {
+        //     let filterView = document.getElementsByClassName("FilterView");
+        //     let slider = document.getElementsByClassName("slider");
+        // 
+        //     for (let i = 0; i < filterView.length; i++) {
+        //         filterView[i].addEventListener("mouseover", () => { this.blueSlider(slider[i]) });
+        //     };
+
+        //     switch (that.props.filterView.view) {
+        //         case "all":
+        //             // filterView[0].removeEventListener("mouseout", that.blueSlider(slider[0]));
+        //             filterView[1].addEventListener("mouseout", () => { that.whiteSlider(slider[1]) });
+        //             filterView[2].addEventListener("mouseout", () => { that.whiteSlider(slider[2]) });
+        //             break;
+        //         case "dog":
+        //             filterView[0].addEventListener("mouseout", () => { that.whiteSlider(slider[0]) });
+        //             // filterView[1].removeEventListener("mouseout", that.whiteSlider(slider[1]));
+        //             filterView[2].addEventListener("mouseout", () => { that.whiteSlider(slider[2]) });
+        //             break;
+        //         case "bbq":
+        //             filterView[0].addEventListener("mouseout", () => { that.whiteSlider(slider[0]) });
+        //             filterView[1].addEventListener("mouseout", () => { that.whiteSlider(slider[1]) });
+        //             // filterView[2].removeEventListener("mouseout", that.whiteSlider(slider[2]))
+        //             break;
+        //     };
+        // })
+
+        this.sliderRender = this.sliderRender || new Array(3);
+        // if (this.props.filterView.view) return null;
+
+        console.log(this.props.filterView.view)
 
         switch (this.props.filterView.view) {
             case "all":
-                sliderRender[0] = <div key={0} className="slider" style={selectedStyle}></div>
-                sliderRender[1] = <div key={1} className="slider" style={blankStyle}></div>
-                sliderRender[2] = <div key={2} className="slider" style={blankStyle}></div>
+                this.sliderRender[0] = <div key={0} className="slider" style={selectedStyle}></div>
+                this.sliderRender[1] = <div key={1} className="slider" style={blankStyle}></div>
+                this.sliderRender[2] = <div key={2} className="slider" style={blankStyle}></div>
                 break;
             case "dog":
-                sliderRender[0] = <div key={0} className="slider" style={blankStyle}></div>
-                sliderRender[1] = <div key={1} className="slider" style={selectedStyle}></div>
-                sliderRender[2] = <div key={2} className="slider" style={blankStyle}></div>
+                this.sliderRender[0] = <div key={0} className="slider" style={blankStyle}></div>
+                this.sliderRender[1] = <div key={1} className="slider" style={selectedStyle}></div>
+                this.sliderRender[2] = <div key={2} className="slider" style={blankStyle}></div>
                 break;
             case "bbq":
-                sliderRender[0] = <div key={0} className="slider" style={blankStyle}></div>
-                sliderRender[1] = <div key={1} className="slider" style={blankStyle}></div>
-                sliderRender[2] = <div key={2} className="slider" style={selectedStyle}></div>
+                this.sliderRender[0] = <div key={0} className="slider" style={blankStyle}></div>
+                this.sliderRender[1] = <div key={1} className="slider" style={blankStyle}></div>
+                this.sliderRender[2] = <div key={2} className="slider" style={selectedStyle}></div>
                 break;
         };
-
-        let that = this;
-        window.addEventListener('DOMContentLoaded', (e) => {
-            let filterView = document.getElementsByClassName("FilterView");
-            let slider = document.getElementsByClassName("slider");
-            for (let i = 0; i < filterView.length; i++) {
-                filterView[i].addEventListener("mouseover", () => {this.blueSlider(slider[i])});
-            };
-
-            switch (that.props.filterView.view) {
-                case "all":
-                    // filterView[0].removeEventListener("mouseout", that.blueSlider(slider[0]));
-                    filterView[1].addEventListener("mouseout", () => {that.whiteSlider(slider[1])});
-                    filterView[2].addEventListener("mouseout", () => {that.whiteSlider(slider[2])});
-                    break;
-                case "dog":
-                    filterView[0].addEventListener("mouseout", () => {that.whiteSlider(slider[0])});
-                    // filterView[1].removeEventListener("mouseout", that.whiteSlider(slider[1]));
-                    filterView[2].addEventListener("mouseout", () => {that.whiteSlider(slider[2])});
-                    break;
-                case "bbq":
-                    filterView[0].addEventListener("mouseout", () => {that.whiteSlider(slider[0])});
-                    filterView[1].addEventListener("mouseout", () => {that.whiteSlider(slider[1])});
-                    // filterView[2].removeEventListener("mouseout", that.whiteSlider(slider[2]))
-                    break;
-            };  
-        })
         
         return (
             <div className='MultiView'>
@@ -230,7 +233,7 @@ class FilterView extends React.Component {
                 </div>
 
                 <div>
-                    {sliderRender}
+                    {this.sliderRender}
                 </div>
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import IndexProductsContainer from './products/productsContainer';
 import NavbarContainer  from './navbar/navbarContainer';
+import FilterViewContainer from './filterView/FilterViewContainer'
 
 class Index extends React.Component {
     constructor(props) {
@@ -75,25 +76,8 @@ class Index extends React.Component {
             <div id="index">
 
                 <NavbarContainer />
-
-                <div className='MultiView'>
-                    <div>
-                        Dogs
-                    </div>
-
-                    <div>
-                        Barbecue
-                    </div>
-
-                    <div>
-                        Express
-                    </div>
-
-                    <div>
-                        Recently Viewed
-                    </div>
-                    
-                </div>
+                <FilterViewContainer />
+               
 
                 <div style={{ backgroundColor: "rgb(248, 250, 251)", display: "flex", alignItems: "center", flexDirection: "column" }}>
                     <IndexProductsContainer purpose="index" />     

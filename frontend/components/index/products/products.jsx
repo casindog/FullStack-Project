@@ -13,7 +13,7 @@ class Products extends React.Component {
 
     indexProducts() {
         // limit to show 13 first, then on scroll down detect, show another 13l
-        let products = this.props.products.map((product, idx) => (
+        let products = Object.values(this.props.products).map((product, idx) => (
             <div className="index_item_container" key={idx}>
                 <div className='index_item_img'>
                     <img src={product.photoUrls} />

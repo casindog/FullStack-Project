@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
-import { requestProducts } from '../../actions/products_action';
+import { requestProducts, changeFilterView } from '../../actions/products_action';
 import Index from './index';
 
 
 const msp = state => {
     return {
-        products: Object.values(state.entities.products)
+        products: state.entities.products,
+        filterView: state.entities.filterView
     }
 }
 
 const mdp = dispatch => ({
-    requestProducts: (data) => dispatch(requestProducts(data))
+    requestProducts: data => dispatch(requestProducts(data)),
+    changeFilterView: view => dispatch(changeFilterView(view))
 })
 
 export default connect(msp, mdp)(Index);

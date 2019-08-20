@@ -154,7 +154,7 @@
 }
 
 .img-icon {
-  height: 25px;
-  width: 25px;
+  height: auto;
+  width: 30px;
   margin-right: 10px;
 }

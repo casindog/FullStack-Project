@@ -5,11 +5,22 @@ class NavBar extends React.Component {
     constructor (props) {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
+        this.state = {search: ""};
     }
     
     handleSubmit(e) {
         e.preventDefault();
-        this.props.logout()
+        debugger    
+        this.props.requestProducts(
+            { search : {
+                tag: this.state.search
+            }
+        });
+    }
+
+    handleInput(e) {
+        this.setState({ search: e.target.value });
     }
 
     render () {
@@ -25,13 +36,13 @@ class NavBar extends React.Component {
 
                     <div className='Nav-Right'>
                         <div className='Nav-Right-items'>
-                            <input className='Nav-Search-Input'>
+                            <form className='Nav-Search-Input' onSubmit={this.handleSubmit}>
+                                <input value={this.state.search} onChange={this.handleInput} >
 
-                            </input>
+                                </input>
 
-                            <div>
-                                <a className='Nav-Search' href="#">Search</a>
-                            </div>
+                                <button type="submit" className='Nav-Search'>Search</button>
+                            </form>
                         </div>
 
                         {this.props.session_id === null ? (
@@ -46,10 +57,6 @@ class NavBar extends React.Component {
                                     <div>    
                                         {this.props.email}
                                     </div>
-                                </div>
-
-                                <div className='Nav-Right-items'>
-                                    <a href="#">Notification</a>
                                 </div>
 
                                 <div className='Nav-Right-items'>

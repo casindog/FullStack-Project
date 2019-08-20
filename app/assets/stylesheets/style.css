@@ -40,10 +40,7 @@
   background-color: rgb(255, 255, 255);
   height: 100%;
   display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
+  justify-content: flex-end;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(212, 227, 235);

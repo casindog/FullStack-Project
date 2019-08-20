@@ -1,12 +1,9 @@
 import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../../actions/modal_action';
 import { logout } from '../../../actions/session_action';
-import Navbar from './navbar'
+import { requestProducts } from '../../../actions/products_action';
 
-// frontend / actions / modal_action.js
-// frontend / actions / modal_action.js
-// frontend / components / index / navbar / navbarContainer.js
-// frontend / components / index / navbar / navbarContainer.js
+import Navbar from './navbar'
 
 const msp = state => {
     return {
@@ -20,7 +17,8 @@ const mdp = dispatch => {
     return {
         openModal: modal => dispatch(openModal(modal)),
         closeModal: () => dispatch(closeModal()),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        requestProducts: data => dispatch(requestProducts(data))
     }
 }
 

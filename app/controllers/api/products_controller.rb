@@ -10,6 +10,9 @@ class Api::ProductsController < ApplicationController
             elsif search_params[:tag] == "bbq"
                 # bbq or barbecue
                 @products = Product.where("lower(name) like ? OR lower(name) like ?", '%bbq%', '%barbecue%').limit(search_params[:endIdx])
+            else 
+                debugger    
+                @products = Product.where("lower(name) like ?", "%#{search_params[:tag]}%")
             end
 
         end

@@ -11,12 +11,13 @@ class NavBar extends React.Component {
     
     handleSubmit(e) {
         e.preventDefault();
-        debugger    
         this.props.requestProducts(
             { search : {
                 tag: this.state.search
             }
-        });
+        }).then(() => {
+            this.props.changeFilterView({ view: this.state.search, loading: false})
+        })
     }
 
     handleInput(e) {

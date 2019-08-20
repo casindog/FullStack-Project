@@ -59,28 +59,36 @@ class FilterView extends React.Component {
                         case "all":
                             data = {
                                 products: { endIdx: this.state.endIdx }
-                            }
+                            };
                             break;
                         case "dog":
                             data = {
                                 search: { tag: "dog", endIdx: this.state.endIdx }
-                            }
+                            };
                             break;
 
                         case "bbq":
                             data = {
                                 search: { tag: "bbq", endIdx: this.state.endIdx }
-                            }
+                            };
                             break;
-                    }
+                    };
+
                     this.props.requestProducts(
-                        data).then(() => {
+                        data)
+                        .then(() => {
                             this.setState(prevState => {
                                 return {
                                     endIdx: prevState.endIdx
                                 };
                             })
-                        }).then(() => {
+                        }, () => {
+                            let load = merge({}, this.props.filterView);
+                            load.loading = false;
+                            this.props.changeFilterView(load);
+                            window.addEventListener('scroll', this.infiniteScroll);
+                        })
+                        .then(() => {
                             let load = merge({}, this.props.filterView);
                             load.loading = false;
                             this.props.changeFilterView(load);
@@ -155,7 +163,6 @@ class FilterView extends React.Component {
             slider[i] = <div key={i} style={selectedStyle}></div>
         }
 
-        // debugger    
         // dumbfounded why this doesn't work.
         // if (this.props.filterView.view = "all") {
         //     slider[0] = <div key={0} style={selectedStyle}></div>

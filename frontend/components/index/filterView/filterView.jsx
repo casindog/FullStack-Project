@@ -8,6 +8,8 @@ class FilterView extends React.Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.infiniteScroll = this.infiniteScroll.bind(this);
+        this.whiteSlider = this.whiteSlider.bind(this);
+        this.blueSlider = this.blueSlider.bind(this);
         this.state = {
             endIdx: 13
         };
@@ -15,7 +17,8 @@ class FilterView extends React.Component {
 
     componentDidMount() {
         // kc: for a real infinite loop, i'd ping the server for 13 new products.
-        this.props.changeFilterView({view: "all", loading: false});
+        this.props.changeFilterView({ view: "all", loading: false });
+
         this.props.requestProducts(
             {
                 products: {
@@ -25,7 +28,44 @@ class FilterView extends React.Component {
         );
 
         window.addEventListener('scroll', this.infiniteScroll);
+    };
+
+    whiteSlider (slider) {
+        slider.style.backgroundColor = "white";
+    };
+
+    blueSlider (slider) {
+        slider.style.backgroundColor = "rgb(47,183,236)"
+    };
+
+    componentDidUpdate() {
+        let filterView = document.getElementsByClassName("FilterView");
+        let slider = document.getElementsByClassName("slider");
+
+        // confused why the mouseover and mouseout slider did not work.
+        // for (let i = 0; i < filterView.length; i++) {
+        //     filterView[i].addEventListener("mouseover", this.blueSlider(slider[i]));
+        // };
+
+        // switch (this.props.filterView.view) {
+        //     case "all":
+        //         // filterView[0].removeEventListener("mouseout", this.blueSlider(slider[0]));
+        //         filterView[1].addEventListener("mouseout", this.whiteSlider(slider[1]));
+        //         filterView[2].addEventListener("mouseout", this.whiteSlider(slider[2]));
+        //         break;
+        //     case "dog":
+        //         filterView[0].addEventListener("mouseout", this.whiteSlider(slider[0]));
+        //         // filterView[1].removeEventListener("mouseout", this.whiteSlider(slider[1]));
+        //         filterView[2].addEventListener("mouseout", this.whiteSlider(slider[2]));
+        //         break;
+        //     case "bbq":
+        //         filterView[0].addEventListener("mouseout", this.whiteSlider(slider[0]));
+        //         filterView[1].addEventListener("mouseout", this.whiteSlider(slider[1]));
+        //         // filterView[2].removeEventListener("mouseout", this.whiteSlider(slider[2]))
+        //         break;
+        // };
     }
+
     
     infiniteScroll(e) {
         // let rect = document.getElementById('root').getBoundingClientRect();
@@ -140,30 +180,44 @@ class FilterView extends React.Component {
         };
     }
 
+
     render() {
-        if (this.props.products.length === 0) return null;
-
-        let selectedStyle = {
-            height: "5px", 
-            backgroundColor: "rgb(47, 183, 236)", 
-            width: "125px",
-            bottom: "-14px",
-            position: "relative"
-        }
-
         let blankStyle = {
             height: "5px",
             width: "125px",
-            bottom: "-14px",
+            bottom: "-4px",
             position: "relative"
+        }
+        
+        let selectedStyle = {
+            height: "5px",
+            width: "125px",
+            bottom: "-4px",
+            position: "relative",
+            backgroundColor: "rgb(47,183,236)"
         }
 
         let slider = new Array(3);
-        for (let i=0; i<3; i++) {
-            slider[i] = <div key={i} style={selectedStyle}></div>
-        }
 
-        // dumbfounded why this doesn't work.
+        switch (this.props.filterView.view) {
+            case "all":
+                slider[0] = <div key={0} className="slider" style={selectedStyle}></div>
+                slider[1] = <div key={1} className="slider" style={blankStyle}></div>
+                slider[2] = <div key={2} className="slider" style={blankStyle}></div>
+                break;
+            case "dog":
+                slider[0] = <div key={0} className="slider" style={blankStyle}></div>
+                slider[1] = <div key={1} className="slider" style={selectedStyle}></div>
+                slider[2] = <div key={2} className="slider" style={blankStyle}></div>
+                break;
+            case "bbq":
+                slider[0] = <div key={0} className="slider" style={blankStyle}></div>
+                slider[1] = <div key={1} className="slider" style={blankStyle}></div>
+                slider[2] = <div key={2} className="slider" style={selectedStyle}></div>
+                break;
+        };
+
+        // dumbfounded why doesn't work.
         // if (this.props.filterView.view = "all") {
         //     slider[0] = <div key={0} style={selectedStyle}></div>
         // } else if (this.props.filterView.view = "dog") {

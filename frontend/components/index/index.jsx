@@ -13,10 +13,20 @@ class Index extends React.Component {
 
         return (
             <div id="index">
-                <NavbarContainer />
-                <FilterViewContainer />
-               
-                <div style={{ backgroundColor: "rgb(248, 250, 251)", display: "flex", alignItems: "center", flexDirection: "column" }}>
+                <div id="fixed-nav">
+                    <NavbarContainer />
+                    <FilterViewContainer />
+                </div>
+ 
+                <div style={{ 
+                    backgroundColor: "rgb(248, 250, 251)", 
+                    display: "flex", 
+                    alignItems: "center", 
+                    flexDirection: "column",
+                    position: "relative",
+                    top: "120px"
+                    }}>
+                        
                     <IndexProductsContainer purpose="index" />     
                     {this.props.filterView.loading ? <div id="infinite-load"> </div> : null}
                 </div>

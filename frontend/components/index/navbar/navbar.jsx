@@ -64,9 +64,9 @@ class NavBar extends React.Component {
                                     <a href="#">Cart</a>
                                 </div>
 
-                                <div className='Nav-Right-items'>
+                                {/* <div className='Nav-Right-items'>
                                     <a href="#">WishList</a>
-                                </div>
+                                </div> */}
                             </div>
                         )}
 

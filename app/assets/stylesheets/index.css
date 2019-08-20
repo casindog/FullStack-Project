@@ -2,7 +2,21 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    z-index: 20;
 }
+
+#fixed-nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed; 
+    background-color: white;
+    top: 0; 
+    width: 100%;
+    z-index: 20;
+}
+
+
 
 .MultiView {
     height: 52px;
@@ -11,12 +25,12 @@
     justify-content: center;   
     flex-direction: column;
     border-bottom: 1px solid rgb(240, 245, 247);
-    text-align: center;
 }
 
 .MultiView > div {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     color: rgb(25, 42, 50);
     font-size: 16px;
     font-weight: 700;
@@ -25,7 +39,19 @@
 
 .FilterView {
     width: 125px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* .FilterView:hover {
+    height: 5px;
+    width: 125px;
+    bottom: -14px;
+    position: relative;
+    background-color: rgb(47, 183, 236);
+} */
 
 .FilterView:hover{
     transform:scale(1.05)

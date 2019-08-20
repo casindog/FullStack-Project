@@ -230,7 +230,6 @@ class FilterView extends React.Component {
             <div className='MultiView'>
                 <div>
                     <div className="FilterView" onClick={() => this.handleClick(event, "all")}>
-                        {/* add a star */}
                         Popular
                     </div>
 

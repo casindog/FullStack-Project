@@ -38,6 +38,7 @@ class NavBar extends React.Component {
                     <div className='Nav-Right'>
                         <div className='Nav-Right-items'>
                             <form className='Nav-Search-Input' onSubmit={this.handleSubmit}>
+                                <img className="img-icon" src="./search.png" alt=""/>
                                 <input style={{width: "200px"}} value={this.state.search} onChange={this.handleInput} >
 
                                 </input>

@@ -150,14 +150,14 @@ class FilterView extends React.Component {
     render() {
         let blankStyle = {
             height: "5px",
-            width: "125px",
+            width: "150px",
             bottom: "-4px",
             position: "relative"
         }
 
         let selectedStyle = {
             height: "5px",
-            width: "125px",
+            width: "150px",
             bottom: "-4px",
             position: "relative",
             backgroundColor: "rgb(47,183,236)"
@@ -220,14 +220,17 @@ class FilterView extends React.Component {
             <div className='MultiView'>
                 <div>
                     <div className="FilterView" onClick={() => this.handleClick(event, "all")}>
+                        <img className="img-icon" src="./star.png" alt=""/>
                         Popular
                     </div>
 
                     <div className="FilterView" onClick={() => {this.handleClick(event,"dog")}}>
+                        <img className="img-icon" src="./dog.png" alt=""/>
                         Dogs
                     </div>
 
                     <div className="FilterView" onClick={() => { this.handleClick(event, "bbq") }}>
+                        <img className="img-icon" src="./bbq.png" alt=""/>
                         Barbecue
                     </div>
                 </div>

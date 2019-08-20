@@ -2,6 +2,7 @@ import React from 'react';
 import IndexProductsContainer from './products/productsContainer';
 import NavbarContainer  from './navbar/navbarContainer';
 import FilterViewContainer from './filterView/filterViewContainer'
+// import ShowProductContainer from './show/ShowProductContainer';
 
 class Index extends React.Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class Index extends React.Component {
                     <IndexProductsContainer purpose="index" />     
                     {this.props.filterView.loading ? <div id="infinite-load"> </div> : null}
                 </div>
+
 
             </div>
         )

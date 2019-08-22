@@ -7,17 +7,19 @@ class Products extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(idx) {
+    handleClick(id) {
         // store recentlyviewed items into store
-        this.props.viewedProducts(idx);        
-        this.props.history.push(`/index/${idx}`);
-        this.props.getProduct(idx);
+
+        this.props.viewedProducts(id);        
+        this.props.history.push(`/index/${id}`);
+        this.props.getProduct(id);
     }
 
     indexProducts() {
         // limit to show 13 first, then on scroll down detect, show another 13
+
         let products = Object.values(this.props.products).map((product, idx) => (
-            <div className="index_item_container" key={idx+1} onClick={() => {this.handleClick(idx+1)}}>
+            <div className="index_item_container" key={product.id} onClick={() => {this.handleClick(product.id)}}>
                 <div className='index_item_img'>
                     <img src={product.photoUrls} />
                     <Flyers product={product} />

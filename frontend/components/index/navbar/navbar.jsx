@@ -27,7 +27,7 @@ class NavBar extends React.Component {
     render () {
 
         return(
-            <div >
+            <div id="fixed-nav">
                 <ul className="Navbar">
                     <div className='Nav-Left'>
                         <div className='Nav-Left-items'>
@@ -61,7 +61,7 @@ class NavBar extends React.Component {
                                 </div>
 
                                 <div className='Nav-Right-items'>
-                                    Cart
+                                    <img className="img-icon" src="./shoppingcart.png" alt=""/>
                                 </div>
 
                                 {/* <div className='Nav-Right-items'>

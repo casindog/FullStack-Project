@@ -1,19 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal, openModal } from '../../../../actions/modal_action';
-import ProfileNavBarContainer from './profileContainer';
+import ProfileContainer from './profileContainer';
 
 function ProfileModal({ modal, closeModal }) {
-    if (!modal) {
-        return null;
-    }
+    if (!modal) return null;
 
     switch (modal) {
         case 'profile':
             return (
                 <div>                    
                     <div className='modal-navprofile' onClick={(e) => e.stopPropagation()}>
-                        <ProfileNavBarContainer />
+                        <ProfileContainer />
                     </div>
                     <div className='modal-profile-background' onClick={closeModal} />
                 </div>

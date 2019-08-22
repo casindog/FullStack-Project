@@ -1,13 +1,10 @@
 .Navbar {
   font-family: "proximanova", sans-serif;
   display: flex;
-  height: 52px;
+  height: 50px;
   justify-content: space-around;
   padding: 10px;
   background-color: white;
-  /* position: fixed; 
-  top: 0; 
-  width: 100%; */
 }
 
 .Nav-Left {

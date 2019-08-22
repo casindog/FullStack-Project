@@ -143,7 +143,10 @@ class FilterView extends React.Component {
                     };
                 });
             });
-        };
+        } else if (tag==="recentlyviewed") {
+            console.log("LOOK AT ME")
+            this.props.changeFilterView({view: tag, loading: false});
+        }
     }
 
 
@@ -151,14 +154,14 @@ class FilterView extends React.Component {
         let blankStyle = {
             height: "5px",
             width: "150px",
-            bottom: "-4px",
+            bottom: "-7px",
             position: "relative"
         }
 
         let selectedStyle = {
             height: "5px",
             width: "150px",
-            bottom: "-4px",
+            bottom: "-7px",
             position: "relative",
             backgroundColor: "rgb(47,183,236)"
         }
@@ -193,27 +196,34 @@ class FilterView extends React.Component {
         //     };
         // })
 
-        this.sliderRender = this.sliderRender || new Array(3);
+        this.sliderRender = this.sliderRender || new Array(4);
         // if (this.props.filterView.view) return null;
-
-        console.log(this.props.filterView.view)
 
         switch (this.props.filterView.view) {
             case "all":
                 this.sliderRender[0] = <div key={0} className="slider" style={selectedStyle}></div>
                 this.sliderRender[1] = <div key={1} className="slider" style={blankStyle}></div>
                 this.sliderRender[2] = <div key={2} className="slider" style={blankStyle}></div>
+                this.sliderRender[3] = <div key={3} className="slider" style={blankStyle}></div>
                 break;
             case "dog":
                 this.sliderRender[0] = <div key={0} className="slider" style={blankStyle}></div>
                 this.sliderRender[1] = <div key={1} className="slider" style={selectedStyle}></div>
                 this.sliderRender[2] = <div key={2} className="slider" style={blankStyle}></div>
+                this.sliderRender[3] = <div key={3} className="slider" style={blankStyle}></div>
                 break;
             case "bbq":
                 this.sliderRender[0] = <div key={0} className="slider" style={blankStyle}></div>
                 this.sliderRender[1] = <div key={1} className="slider" style={blankStyle}></div>
                 this.sliderRender[2] = <div key={2} className="slider" style={selectedStyle}></div>
+                this.sliderRender[3] = <div key={3} className="slider" style={blankStyle}></div>
                 break;
+            case "recentlyviewed":
+                this.sliderRender[0] = <div key={0} className="slider" style={blankStyle}></div>
+                this.sliderRender[1] = <div key={1} className="slider" style={blankStyle}></div>
+                this.sliderRender[2] = <div key={2} className="slider" style={blankStyle}></div>
+                this.sliderRender[3] = <div key={3} className="slider" style={selectedStyle}></div>
+                break;  
         };
         
         return (
@@ -233,21 +243,17 @@ class FilterView extends React.Component {
                         <img className="img-icon" src="./bbq.png" alt=""/>
                         Barbecue
                     </div>
+
+                    <div className="FilterView" onClick={() => {this.handleClick(event, "recentlyviewed")}}>
+                        <img className="img-icon" src="./recentlyviewed.png" alt=""/>
+                        Recently Viewed
+                    </div>
                 </div>
 
                 <div>
                     {this.sliderRender}
                 </div>
 
-
-                {/* develop after career fair  */}
-                {/* <div onClick={this.handleClick}>
-                    Express
-                </div> */}
-
-                {/* <div onClick={this.handleClick}>
-                    Recently Viewed
-                </div> */}
             </div>
         )
     }

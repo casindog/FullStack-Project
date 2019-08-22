@@ -4,17 +4,18 @@ import Flyers from './Flyers';
 class Products extends React.Component {
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    handleSubmit(e) {
+    handleClick(e) {
         e.preventDefault();
+        this.props.openModal('showProduct')
     }
 
     indexProducts() {
         // limit to show 13 first, then on scroll down detect, show another 13l
         let products = Object.values(this.props.products).map((product, idx) => (
-            <div className="index_item_container" key={idx}>
+            <div className="index_item_container" key={idx} onClick={this.handleClick}>
                 <div className='index_item_img'>
                     <img src={product.photoUrls} />
                     <Flyers product={product} />
@@ -36,10 +37,10 @@ class Products extends React.Component {
 
     render() {
         let products = this.indexProducts();
-        if (Object.keys(this.props.products).length === 150) products = products.slice(0,13);
-        
+        if (Object.keys(this.props.products).length === 150) products = products.slice(0, 13);
+
         return (
-            <div id="index-products">                
+            <div id="index-products">
                 {products}
             </div>
         )

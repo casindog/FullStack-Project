@@ -1,8 +1,10 @@
 #index {
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
-    z-index: 20;
+    z-index: 5;
+    background-color:rgb(248, 250, 251);
 }
 
 #fixed-nav {
@@ -13,16 +15,20 @@
     background-color: white;
     top: 0; 
     width: 100%;
-    z-index: 20;
+    z-index: 5;
 }
 
 .MultiView {
-    height: 52px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;   
     flex-direction: column;
     border-bottom: 1px solid rgb(240, 245, 247);
+    position: absolute;
+    top:60px;
+    width: 100%;
+    background-color: white;
 }
 
 .MultiView > div {
@@ -43,14 +49,6 @@
     align-items: center;
 }
 
-/* .FilterView:hover {
-    height: 5px;
-    width: 125px;
-    bottom: -14px;
-    position: relative;
-    background-color: rgb(47, 183, 236);
-} */
-
 .FilterView:hover{
     transform:scale(1.05)
 }
@@ -62,8 +60,10 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
     background-color: rgb(248, 250, 251);
+    position: relative;
+    top: 120px;
 }
 
 .index_item_container {
@@ -130,15 +130,45 @@
 }
 
 #infinite-load {
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
+    position: relative;
+    top: 120px;
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    background-color:rgb(248, 250, 251);
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+#product-modal {
+    width: 1000px;
+    height: 500px;
+    background-color: yellow;
+    position: relative;
+}
+
+#product-modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#product-modal-container {
+    display: flex;
+    justify-content: center;
+}
+
+#product-modal-container > div {
+    padding: 30px 15px;
+    background-color: blue;
+}
+

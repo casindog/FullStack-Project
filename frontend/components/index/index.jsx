@@ -2,7 +2,7 @@ import React from 'react';
 import IndexProductsContainer from './products/productsContainer';
 import NavbarContainer  from './navbar/navbarContainer';
 import FilterViewContainer from './filterView/filterViewContainer'
-// import ShowProductContainer from './show/ShowProductContainer';
+import ProductModalContainer from './products/productModalContainer.js'
 
 class Index extends React.Component {
     constructor(props) {
@@ -14,24 +14,12 @@ class Index extends React.Component {
 
         return (
             <div id="index">
-                <div id="fixed-nav">
-                    <NavbarContainer />
-                    <FilterViewContainer />
-                </div>
+                <ProductModalContainer />
+                <NavbarContainer />
  
-                <div style={{ 
-                    backgroundColor: "rgb(248, 250, 251)", 
-                    display: "flex", 
-                    alignItems: "center", 
-                    flexDirection: "column",
-                    position: "relative",
-                    top: "120px"
-                    }}>
-                        
-                    <IndexProductsContainer purpose="index" />     
-                    {this.props.filterView.loading ? <div id="infinite-load"> </div> : null}
-                </div>
-
+                <FilterViewContainer />
+                <IndexProductsContainer purpose="index" />     
+                {this.props.filterView.loading ? <div id="infinite-load"> </div> : null}
 
             </div>
         )

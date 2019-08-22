@@ -145,30 +145,3 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-#product-modal {
-    width: 1000px;
-    height: 500px;
-    background-color: yellow;
-    position: relative;
-}
-
-#product-modal-background {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-}
-
-#product-modal-container {
-    display: flex;
-    justify-content: center;
-}
-
-#product-modal-container > div {
-    padding: 30px 15px;
-    background-color: blue;
-}
-

@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import IndexContainer from './index/indexContainer';
 import SplashContainer from './splash/splashContainer';
-
+import IndexRoutes from './indexRoutes';
 
 class App extends React.Component {
     constructor(props) {
@@ -16,8 +16,7 @@ class App extends React.Component {
             <div>
                 <Switch>
                     <AuthRoute exact path="/" component={SplashContainer}/>
-                    {/* KC: looks like you need a component */}
-                    <ProtectedRoute path="/index" component={IndexContainer}/>
+                    <ProtectedRoute path="/index" component={IndexRoutes}/>
                 </Switch>
             </div>
         )

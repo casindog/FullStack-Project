@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Products from './products';
-import { openModal, closeModal } from '../../../actions/modal_action';
+import { requestProduct } from '../../../actions/products_action';
 
 const msp = state => {
     return {
@@ -11,9 +12,8 @@ const msp = state => {
 
 const mdp = dispatch => {
     return {
-        openModal: modal => dispatch(openModal(modal)),
-        closeModal: () => dispatch(closeModal())
+        getProduct: id => dispatch(requestProduct(id))
     }
 }
 
-export default connect(msp, mdp)(Products);
+export default withRouter(connect(msp, mdp)(Products));

@@ -7,15 +7,16 @@ class Products extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(e) {
-        e.preventDefault();
-        this.props.openModal('showProduct')
+    handleClick(idx) {
+        // e.preventDefault();
+        this.props.history.push(`/index/${idx}`);
+        this.props.getProduct(idx);
     }
 
     indexProducts() {
-        // limit to show 13 first, then on scroll down detect, show another 13l
+        // limit to show 13 first, then on scroll down detect, show another 13
         let products = Object.values(this.props.products).map((product, idx) => (
-            <div className="index_item_container" key={idx} onClick={this.handleClick}>
+            <div className="index_item_container" key={idx+1} onClick={() => {this.handleClick(idx+1)}}>
                 <div className='index_item_img'>
                     <img src={product.photoUrls} />
                     <Flyers product={product} />
@@ -24,9 +25,6 @@ class Products extends React.Component {
                 <div className='index_item_info'>
                     <div className='index-item-top'>{product.original_price}</div>
                     <div className='index-item-bottom'>{product.transactions}+ bought this</div>
-                    {/* <div>{product.verified}</div>
-                    <div>{product.fast_shipping}</div>
-                    <div>{product.almost_gone}</div> */}
                 </div>
             </div>
         ));

@@ -1,0 +1,75 @@
+#product-modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    padding: 30px 15px;
+    background: rgba(25, 42, 50, 0.7);
+    transition: all 150ms ease 0s;
+    width:100%;
+    height: 100%;
+}
+
+#product-modal {
+    width: 1000px;
+    height: 1000px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#product-modal > div {
+    padding: 30px 15px;
+    display: flex;
+
+}
+
+
+#image {
+    width: 500px;
+    height: 500px;
+    padding-bottom: 40px;
+    display: flex;
+    float: left;
+}
+
+#product-info {
+    float: right;
+    font-family: "proximanova", sans-serif;
+    position: sticky;
+    top: 72px;
+    width: 368px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(240, 245, 247);
+    border-image: initial;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+#product-name {
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(25, 42, 50);
+    overflow-wrap: break-word;
+}
+
+#product-info > button {
+    height: 48px;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: rgb(255, 86, 34);
+    min-width: 140px;
+    border-radius: 2px;
+}

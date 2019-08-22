@@ -11,7 +11,6 @@ class Api::ProductsController < ApplicationController
                 # bbq or barbecue
                 @products = Product.where("lower(name) like ? OR lower(name) like ?", '%bbq%', '%barbecue%').limit(search_params[:endIdx])
             else 
-                # debugger    
                 search = search_params[:tag].downcase
                 @products = Product.where("lower(name) like ?", "%#{search}%")
             end
@@ -20,7 +19,7 @@ class Api::ProductsController < ApplicationController
     end
 
     def show
-
+        @product = Product.find_by id: params[:id]
     end
 
     def products_params

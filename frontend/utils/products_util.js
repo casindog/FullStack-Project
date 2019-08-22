@@ -5,3 +5,10 @@ export const getProducts = (data) => {
         data: data
     })
 }
+
+export const getProduct = id => {
+    return $.ajax({
+        url: `/api/products/${id}`,
+        method: 'get'
+    })
+}

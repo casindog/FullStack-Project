@@ -9,7 +9,11 @@ class Api::ProductsController < ApplicationController
                 @products = Product.where("lower(name) like ?", "%#{search_params[:tag]}%").limit(search_params[:endIdx])
             elsif search_params[:tag] == "bbq"
                 # bbq or barbecue
+                debugger
                 @products = Product.where("lower(name) like ? OR lower(name) like ?", '%bbq%', '%barbecue%').limit(search_params[:endIdx])
+            elsif search_params[:tag] == "recentlyviewed"
+                debugger
+                @products = Product.where(id: search_params[:history])
             else 
                 search = search_params[:tag].downcase
                 @products = Product.where("lower(name) like ?", "%#{search}%")
@@ -27,6 +31,6 @@ class Api::ProductsController < ApplicationController
     end
 
     def search_params
-        params.require(:search).permit(:tag, :endIdx)
+        params.require(:search).permit(:tag, :endIdx, history: [])
     end
 end

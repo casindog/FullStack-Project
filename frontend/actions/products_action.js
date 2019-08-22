@@ -5,7 +5,12 @@ import {
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const CHANGE_FILTER_VIEW = 'CHANGE_FILTER_VIEW';
+export const VIEWED_PRODUCTS = 'VIEWED_PRODUCTS';
 
+export const viewedProducts = id => ({
+    type: VIEWED_PRODUCTS,
+    id
+})
 
 export const changeFilterView = (view) => ({
     type: CHANGE_FILTER_VIEW,

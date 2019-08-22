@@ -5,7 +5,8 @@ import FilterView from './filterView';
 const msp = state => {
     return {
         products: state.entities.products,
-        filterView: state.entities.filterView
+        filterView: state.entities.filterView,
+        viewedProducts: state.entities.viewedProducts
     };
 };
 

@@ -29,6 +29,90 @@ require 'open-uri'
 #     password: 'password'
 # )
 
+
+    d = Discount.create(
+        product_id: 0,
+        discount_price: 'Free'
+    )
+            
+    d = Discount.create(
+        product_id: 1,
+        discount_price: "$4.65"
+    )
+
+    d = Discount.create(
+        product_id: 2,
+        discount_price: "$10"
+    )
+    d = Discount.create(
+        product_id: 3,
+        discount_price: "$0.66"
+    )
+    d = Discount.create(
+        product_id: 4,
+        discount_price: "$4"
+    )
+
+    d = Discount.create(
+        product_id: 5,
+        discount_price: "$6"
+    )
+
+    d = Discount.create(
+        product_id: 6,
+        discount_price: "$Free"
+    )
+
+    d = Discount.create(
+        product_id: 7,
+        discount_price: "$0.93"
+    )
+
+    d = Discount.create(
+        product_id: 8,
+        discount_price: "$10"
+    )
+    d = Discount.create(
+        product_id: 9,
+        discount_price: "$5"
+    )
+    d = Discount.create(
+        product_id: 10,
+        discount_price: "Free"
+    )
+    d = Discount.create(
+        product_id: 11,
+        discount_price: "$8"
+    )
+    d = Discount.create(
+        product_id: 12,
+        discount_price: "$15"
+    )
+    d = Discount.create(
+        product_id: 13,
+        discount_price: "$18"
+    )
+    d = Discount.create(
+        product_id: 14,
+        discount_price: "$2"
+    )
+    d = Discount.create(
+        product_id: 15,
+        discount_price: "$1"
+    )
+    d = Discount.create(
+        product_id: 16,
+        discount_price: "$20"
+    )
+    d = Discount.create(
+        product_id: 17,
+        discount_price: "$5"
+    )
+    d = Discount.create(
+        product_id: 18,
+        discount_price: "$6"
+    )
+
 10.times do 
     #Dog StuffDog
     p = Product.create(
@@ -45,6 +129,7 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/dogseatbelt.jpeg')
         p.photo.attach(io: file, filename: 'dogseatbelt.jpeg')
 
+
     p = Product.create(
         name: 'Professional Pet Anti Agrssive Deterrent Train ETU LED Dog Pet Repeller Barking Stopper', 
         original_price: '$26', 
@@ -58,7 +143,7 @@ require 'open-uri'
 
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogStopper.jpg')
         p.photo.attach(io: file, filename: 'DogStopper.jpg')
-        
+
 
     p = Product.create(
         name: 'Rubber Kelly Big Giant Pet Dog Puppy Mega Jumbo Tennis Ball Thrower Chucker Launcher Play Toy Signature Diameter 24cm', 

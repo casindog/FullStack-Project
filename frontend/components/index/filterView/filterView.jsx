@@ -35,12 +35,6 @@ class FilterView extends React.Component {
     };
     
     infiniteScroll(e) {
-        // let rect = document.getElementById('root').getBoundingClientRect();
-        // console.log(`scrollH: ${document.scrollingElement.scrollHeight}`);
-        // console.log(`scrollT: ${document.scrollingElement.scrollTop}`);
-        // console.log(`clientH: ${document.scrollingElement.clientHeight}`);
-        // console.log(`scrollH-scrollT-clientH: ${document.scrollingElement.scrollHeight - document.scrollingElement.scrollTop - document.scrollingElement.clientHeight}`)
-        // console.log("-----------")
 
         if (document.scrollingElement.scrollHeight
             - document.scrollingElement.scrollTop
@@ -59,8 +53,6 @@ class FilterView extends React.Component {
                 };
             }, () => {
                 setTimeout(() => {
-                    // kc: how does "this" know it's this class obj?
-                    // when i debugg in console, this refers to global object window
                     let data;
                     switch (this.props.filterView.view) {
                         case "all":
@@ -144,8 +136,21 @@ class FilterView extends React.Component {
                 });
             });
         } else if (tag==="recentlyviewed") {
-            console.log("LOOK AT ME")
             this.props.changeFilterView({view: tag, loading: false});
+
+            this.props.requestProducts(
+                { search: {
+                    tag,
+                    history: this.props.viewedProducts
+                    }
+                }
+            ).then(() => {
+                this.setState(prevState => {
+                    return {
+                        endIdx: 13,
+                    };
+                });
+            });
         }
     }
 

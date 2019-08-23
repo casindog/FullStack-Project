@@ -8,10 +8,8 @@ class Api::ProductsController < ApplicationController
             if search_params[:tag] == "dog"
                 @products = Product.where("lower(name) like ?", "%#{search_params[:tag]}%").limit(search_params[:endIdx])
             elsif search_params[:tag] == "bbq"
-                # bbq or barbecue
                 @products = Product.where("lower(name) like ? OR lower(name) like ?", '%bbq%', '%barbecue%').limit(search_params[:endIdx])
             elsif search_params[:tag] == "recentlyviewed"
-
                 @products = Product.where(id: search_params[:history])
             else 
                 search = search_params[:tag].downcase

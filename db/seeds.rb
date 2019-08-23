@@ -23,96 +23,13 @@ require 'open-uri'
 # user.avatar.attach(io: file, filename: 'this_users_avatar.jpg')
 
 # demo user
+User.create!(
+    email: 'DEMO', 
+    password: 'password'
+)
 
-# User.create!(
-#     email: 'DEMO', 
-#     password: 'password'
-# )
 
-
-    d = Discount.create(
-        product_id: 0,
-        discount_price: 'Free'
-    )
-            
-    d = Discount.create(
-        product_id: 1,
-        discount_price: "$4.65"
-    )
-
-    d = Discount.create(
-        product_id: 2,
-        discount_price: "$10"
-    )
-    d = Discount.create(
-        product_id: 3,
-        discount_price: "$0.66"
-    )
-    d = Discount.create(
-        product_id: 4,
-        discount_price: "$4"
-    )
-
-    d = Discount.create(
-        product_id: 5,
-        discount_price: "$6"
-    )
-
-    d = Discount.create(
-        product_id: 6,
-        discount_price: "$Free"
-    )
-
-    d = Discount.create(
-        product_id: 7,
-        discount_price: "$0.93"
-    )
-
-    d = Discount.create(
-        product_id: 8,
-        discount_price: "$10"
-    )
-    d = Discount.create(
-        product_id: 9,
-        discount_price: "$5"
-    )
-    d = Discount.create(
-        product_id: 10,
-        discount_price: "Free"
-    )
-    d = Discount.create(
-        product_id: 11,
-        discount_price: "$8"
-    )
-    d = Discount.create(
-        product_id: 12,
-        discount_price: "$15"
-    )
-    d = Discount.create(
-        product_id: 13,
-        discount_price: "$18"
-    )
-    d = Discount.create(
-        product_id: 14,
-        discount_price: "$2"
-    )
-    d = Discount.create(
-        product_id: 15,
-        discount_price: "$1"
-    )
-    d = Discount.create(
-        product_id: 16,
-        discount_price: "$20"
-    )
-    d = Discount.create(
-        product_id: 17,
-        discount_price: "$5"
-    )
-    d = Discount.create(
-        product_id: 18,
-        discount_price: "$6"
-    )
-
+i = 1;
 10.times do 
     #Dog StuffDog
     p = Product.create(
@@ -129,6 +46,13 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/dogseatbelt.jpeg')
         p.photo.attach(io: file, filename: 'dogseatbelt.jpeg')
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: 'Free'
+        )
+            
+  
+    i += 1
 
     p = Product.create(
         name: 'Professional Pet Anti Agrssive Deterrent Train ETU LED Dog Pet Repeller Barking Stopper', 
@@ -144,6 +68,12 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogStopper.jpg')
         p.photo.attach(io: file, filename: 'DogStopper.jpg')
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$4.65"
+    )
+
+    i += 1
 
     p = Product.create(
         name: 'Rubber Kelly Big Giant Pet Dog Puppy Mega Jumbo Tennis Ball Thrower Chucker Launcher Play Toy Signature Diameter 24cm', 
@@ -159,6 +89,13 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/dogball.jpg')
         p.photo.attach(io: file, filename: 'dogball.jpg')
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$10"
+    )
+    
+    i += 1
+
     p = Product.create(
         name: 'Smart Dog Bluetooth Locator Pet GPS Tracker Alarm Remote Wireless Tracker for Pets No Battery', 
         original_price: '$22', 
@@ -172,6 +109,13 @@ require 'open-uri'
 
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/dogtracker.jpg')
         p.photo.attach(io: file, filename: 'dogtracker.jpg')
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$0.66"
+    )
+
+    i += 1
 
     p = Product.create(
         name: 'Summer Cooling Mats Blanket Ice Silk Pet Dog Bed Sofa Portable Yoga Sleeping Pad For Cats Indoor Cushion', 
@@ -187,6 +131,13 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogMat.jpeg')
         p.photo.attach(io: file, filename: 'DogMat.jpeg')
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$4"
+    )
+
+    i += 1
+
     p = Product.create(
         name: 'Dogs Swimsuit Dog Vests Bathing SuitSwimming Lifejacket Dog Clothes Pet Supplies', 
         original_price: '$52', 
@@ -200,6 +151,14 @@ require 'open-uri'
 
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogLifeJacket.jpg')
         p.photo.attach(io: file, filename: 'DogLifeJacket.jpg')
+
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$6"
+    )
+
+    i += 1
 
     p = Product.create(
         name: 'Cute Pet Dog Cat Shirt Summer Breathable Vest for Cats Small Dogs Fashion Lettering Polyester Kitten Clothes Puppies Costume', 
@@ -215,6 +174,14 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogBoss.jpg')
         p.photo.attach(io: file, filename: 'DogBoss.jpg')
 
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$Free"
+    )
+
+    i += 1
+
     p = Product.create(
         name: 'Nylon LED Pet Dog Collar,Night Safety Flashing Glow In The Dark Dog Leash,Dogs Luminous Fluorescent Collars Pet Supplies', 
         original_price: '$0', 
@@ -228,6 +195,14 @@ require 'open-uri'
 
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogLEDcollar.jpg')
         p.photo.attach(io: file, filename: 'DogLEDcollar.jpg')
+
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$0.93"
+    )
+
+    i += 1
 
     p = Product.create(
         name: 'Pet Toys Bite-Resistant Voice Toy Balls Large Dogs Golden Retriever Prickly TPR Dog Toy Cleaning Teeth Molar Dog Toy', 
@@ -243,6 +218,13 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogChewToy.jpg')
         p.photo.attach(io: file, filename: 'DogChewToy.jpg')
 
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$10"
+    )
+    i += 1
+
     p = Product.create(
         name: 'Large Pet Dog Cat Bed Puppy Cushion House Pet Soft Warm Kennel Dog Mat Blanket', 
         original_price: '$8', 
@@ -256,6 +238,13 @@ require 'open-uri'
 
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/DogBed.jpg')
         p.photo.attach(io: file, filename: 'DogBed.jpg')
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$5"
+    )
+
+    i += 1
 
     # BBQ Stuff
     p = Product.create(
@@ -272,6 +261,14 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq1.jpg')
         p.photo.attach(io: file, filename: 'bbq1.jpg')
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: "Free"
+    )
+
+    i += 1
+
+
     p = Product.create(
         name: '10pcs Stainless Steel BBQ Utensil Skewers Barbecue Flat Needle Kabob Sticks', 
         original_price: '$40', 
@@ -285,6 +282,14 @@ require 'open-uri'
 
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq2.jpg')
         p.photo.attach(io: file, filename: 'bbq2.jpg')
+
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$8"
+    )
+
+    i += 1
 
     p = Product.create(
         name: 'BBQ Grill Tool Set- 20 Piece Stainless Steel Barbecue Grilling Accessories with Aluminum Case, Spatula, Tongs, Skewers', 
@@ -300,6 +305,13 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq3.jpg')
         p.photo.attach(io: file, filename: 'bbq3.jpg')
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$15"
+    )
+
+    i += 1
+
     p = Product.create(
         name: 'BBQ Grill Tool Set- 20 Piece Stainless Steel Barbecue Grilling Accessories with Aluminum Case, Spatula, Tongs, Skewers', 
         original_price: '$60', 
@@ -313,6 +325,14 @@ require 'open-uri'
 
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq4.jpeg')
         p.photo.attach(io: file, filename: 'bbq4.jpeg')
+
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$18"
+    )   
+    
+    i += 1
 
     p = Product.create(
         name: '300 Stainless Steel Barbecue BBQ Smoker Grill Thermometer Temperature Gauge', 
@@ -329,6 +349,13 @@ require 'open-uri'
         p.photo.attach(io: file, filename: 'bbq5.jpg')
 
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$2"
+    )
+
+    i += 1
+
     p = Product.create(
         name: 'BBQ Grill Clean Stone Bakeware Cleaning Grill Cleaning', 
         original_price: '$6', 
@@ -342,6 +369,13 @@ require 'open-uri'
 
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq6.jpg')
         p.photo.attach(io: file, filename: 'bbq6.jpg')
+
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$1"
+    )
+    i += 1
 
     p = Product.create(
         name: 'Portable Compact Charcoal Barbecue BBQ Grill Cooker Bars Smoker Outdoor Camping', 
@@ -358,6 +392,12 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq7.jpg')
         p.photo.attach(io: file, filename: 'bbq7.jpg')
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$20"
+    )
+    i += 1
+
     p = Product.create(
         name: 'BBQ Seasoning and Marinade Injector Needle Meat Tenderizer Kitchen Supplies Home Accessories Halloween Christmas Tool Dining Sauces Gadget Cooking Hammers Knife Steak Outdoor Comping BBQ Cooking Baking Tool Barbecue Steak', 
         original_price: '$49', 
@@ -372,6 +412,12 @@ require 'open-uri'
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq8.jpg')
         p.photo.attach(io: file, filename: 'bbq8.jpg')
 
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$5"
+    )
+    i += 1
+
     p = Product.create(
         name: 'Barbecue Security Tools Stamp Hot Stamping Personality Changeable 55 Letters Steak Mold Barbecue Meat BBQ Tool Outdoor', 
         original_price: '30', 
@@ -382,8 +428,15 @@ require 'open-uri'
         just_shipping: false,
         # img_url: 'bbq9.jpeg',
         seller_id: 2)
+
         file = open('https://app-want-seeds.s3-us-west-1.amazonaws.com/images/bbq9.jpeg')
         p.photo.attach(io: file, filename: 'bbq9.jpeg')
 
-        
+
+    d = Discount.create(
+        product_id: i,
+        discount_price: "$6"
+    )
+    i += 1
+
 end

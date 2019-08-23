@@ -26,7 +26,10 @@ class Products extends React.Component {
                 </div>
 
                 <div className='index_item_info'>
-                    <div className='index-item-top'>{product.original_price}</div>
+                    <div>
+                        <div className='index-item-top'>{product.discount}</div>
+                        <div className='index-item-top-strike'>{product.original_price}</div>
+                    </div>
                     <div className='index-item-bottom'>{product.transactions}+ bought this</div>
                 </div>
             </div>

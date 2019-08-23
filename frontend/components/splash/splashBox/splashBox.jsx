@@ -18,11 +18,6 @@ class SplashBox extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        // if possible, i'd like to remove the 1st div container, then 
-        // call the css animation @keyframes slideshow
-    }
-
     handleInputEmail(e) {
         e.preventDefault();
         this.setState({ email: e.target.value })
@@ -31,7 +26,6 @@ class SplashBox extends React.Component {
         e.preventDefault();
         this.setState({ password: e.target.value })
     }
-
     handleSubmitDemo(e) {
         e.preventDefault();
         this.props.login({email: 'DEMO', password: 'password'});
@@ -87,7 +81,7 @@ class SplashBox extends React.Component {
                     <div className='splash-prices'>
                         <div className='splash-rotate-info-strike'>{product.original_price}</div>
                         {/* will have to dd discount price afterawrd */}
-                        <div className='splash-rotate-info'>{product.original_price}</div>
+                        <div className='splash-rotate-info'>{product.discount}</div>
                         <div className='splash-chevron'></div>
                     </div>
                     <img idx={idx} src={product.photoUrls} />

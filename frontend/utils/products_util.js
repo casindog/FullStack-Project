@@ -12,3 +12,11 @@ export const getProduct = id => {
         method: 'get'
     })
 }
+
+export const postItem = data => {
+    return $.ajax({
+        url: `/api/shopping_carts`,
+        method: 'post',
+        data
+    })
+}

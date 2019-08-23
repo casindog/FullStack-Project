@@ -26,6 +26,7 @@
 #product-modal > div {
     padding: 30px 15px;
     display: flex;
+    justify-content: space-between;
 
 }
 
@@ -41,8 +42,6 @@
 #product-info {
     float: right;
     font-family: "proximanova", sans-serif;
-    position: sticky;
-    top: 72px;
     width: 368px;
     border-width: 1px;
     border-style: solid;
@@ -51,6 +50,8 @@
     padding: 32px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+        height: fit-content;
 }
 
 #product-name {
@@ -58,6 +59,11 @@
     font-size: 18px;
     color: rgb(25, 42, 50);
     overflow-wrap: break-word;
+}
+
+#product-info > div {
+    margin-bottom: 12px;
+    
 }
 
 #product-info > button {
@@ -72,4 +78,35 @@
     background-color: rgb(255, 86, 34);
     min-width: 140px;
     border-radius: 2px;
+}
+
+#product-price {
+    box-sizing: border-box;
+        display: flex;
+    flex-wrap: wrap;
+        font-family: "proximanova", sans-serif;
+}
+
+#discount {
+    display: block;
+    float: left;
+        align-self: flex-end;
+    font-size: 28px;
+    line-height: 24px;
+    margin-right: 12px;
+    font-weight: bold;
+    color: rgb(25, 42, 50);
+        box-sizing: border-box;
+}
+
+#msrp {
+    align-self: flex-end;
+    font-size: 28px;
+    margin-right: 12px;
+    line-height: 24px;
+    color: rgb(175, 199, 209);
+    position: relative;
+    text-decoration: line-through;
+    display: block;
+    box-sizing: border-box;
 }

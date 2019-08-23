@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProductModal from './productModal';
 import { closeModal, openModal } from '../../../actions/modal_action';
-import { getProduct } from '../../../actions/modal_action';
+import { getProduct, postItemToCart } from '../../../actions/modal_action';
 
 const msp = state => {
     return {
@@ -19,7 +19,8 @@ const mdp = dispatch => {
             e.stopPropagation();
             dispatch(closeModal());
         },
-        getProduct: id => dispatch(getProduct(id))
+        getProduct: id => dispatch(getProduct(id)),
+        addItem: data => dispatch(postItemToCart(data))
     }
 }
 

@@ -20,3 +20,21 @@ export const postItem = data => {
         data
     })
 }
+
+export const patchItem = data => {
+    debugger
+    return $.ajax({
+        url: `/api/shopping_carts/${data.cart.id}`,
+        method: 'patch',
+        data
+    })
+}
+
+// use the index route and then controller file filter on userID
+export const fetchCart = data => {
+    return $.ajax({
+        url: `/api/shopping_carts/`,
+        method: 'get',
+        data
+    })
+}

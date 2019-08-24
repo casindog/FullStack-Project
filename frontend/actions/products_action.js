@@ -1,5 +1,5 @@
 import {
-    getProducts, getProduct, postItem, patchItem
+    getProducts, getProduct, postItem, patchItem, fetchCart
 } from '../utils/products_util';
 
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
@@ -7,6 +7,8 @@ export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const CHANGE_FILTER_VIEW = 'CHANGE_FILTER_VIEW';
 export const VIEWED_PRODUCTS = 'VIEWED_PRODUCTS';
 export const ADD_ITEM = 'ADD_ITEM';
+export const ADD_QTY = "ADD_QTY";
+export const RECEIVE_CART = 'RECEIVE_CART';
 
 export const viewedProducts = id => ({
     type: VIEWED_PRODUCTS,
@@ -18,6 +20,23 @@ export const changeFilterView = (view) => ({
     view
 })
 
+export const receiveCart = data => ({
+    type: RECEIVE_CART,
+    data
+})
+
+export const getCart = data => dispatch => {
+    return fetchCart(data).then(data => dispatch(receiveCart(data)))
+}
+
+export const addQty = data => ({
+    type: ADD_QTY,
+    data
+})
+
+export const patchQtyToCart = data => dispatch => {
+    return patchItem(data).then(data => dispatch(addQty(data)))
+}
 
 export const addItem = data => ({
     type: ADD_ITEM,

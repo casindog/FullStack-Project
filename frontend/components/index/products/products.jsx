@@ -9,7 +9,6 @@ class Products extends React.Component {
 
     handleClick(id) {
         // store recentlyviewed items into store
-
         this.props.viewedProducts(id);        
         this.props.history.push(`/index/${id}`);
         this.props.getProduct(id);

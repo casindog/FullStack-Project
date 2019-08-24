@@ -9,6 +9,13 @@ class NavBar extends React.Component {
         this.state = {search: ""};
     }
     
+    componentDidMount() {
+        let data = { cart: {
+            user_id: this.props.session.id
+        }}
+        this.props.getCart(data);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.requestProducts(
@@ -47,7 +54,7 @@ class NavBar extends React.Component {
                             </form>
                         </div>
 
-                        {this.props.session_id === null ? (
+                        {this.props.session.id === null ? (
                             <div>
                             </div>
                         ) : (
@@ -70,7 +77,7 @@ class NavBar extends React.Component {
                             </div>
                         )}
 
-                        {this.props.session_id === null ? (
+                        {this.props.session.id === null ? (
                             <div className='Nav-Right'>
                                 <div className='Nav-Right-items'>
                                     <button onClick={() => this.props.openModal('signup')}>Sign up with Email</button>

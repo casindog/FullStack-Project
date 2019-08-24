@@ -4,6 +4,7 @@ class ProductModal extends React.Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this);
+        this.checkCartHasItem = this.checkCartHasItem.bind(this);
         this.addItem = this.addItem.bind(this);
     }
 
@@ -14,47 +15,82 @@ class ProductModal extends React.Component {
         this.props.history.push(`/index`);
     }
 
+    checkCartHasItem () {
+        let cartItems = Object.values(this.props.cartItems);
+        let productId = Object.keys(this.props.product)[0]
+        for (let i = 0; i < cartItems.length; i++) {
+            // use coercion to compare string and integer
+            if (cartItems[i].product_id == productId) {
+                return true;
+            };
+        };
+        return false
+    }
+
     addItem() {
-        // if item is already in database, then we will send a patch request instead
+        
         let data;
+        if (this.checkCartHasItem()) {
+            // send patch request to change quantity
+            let cartItems = Object.values(this.props.cartItems);
+            let ShoppingCartId; 
 
-        if (Object.keys(this.props.cartItems).indexOf(Object.keys(this.props.product)[0]) === -1) {
-            data = { cart: {
-                user_id: this.props.session.id,
-                product_id: Object.keys(this.props.product)[0],
-                quantity: 1
-            }}
-    
-            this.props.postItemToCart(data);
+            for (let i=0; i<cartItems.length; i++) {
+                if (cartItems[i].product_id == Object.keys(this.props.product)[0]) {
+                    ShoppingCartId = cartItems[i].id;
+                    break;
+                }
+            };
 
+            data = {
+                cart: {
+                    id: ShoppingCartId,
+                    user_id: this.props.session.id,
+                    product_id: Object.keys(this.props.product)[0],
+                    quantity: 2
+                }
+            }
+
+            this.props.patchQtyToCart(data);
+            this.props.history.push(`/index`);
         } else {
-            // send a patch request to change quantity
-        }
+            // send post request
+            data = {
+                cart: {
+                    user_id: this.props.session.id,
+                    product_id: Object.keys(this.props.product)[0],
+                    quantity: 1
+                }
+            }
+
+            this.props.postItemToCart(data);
+            this.props.history.push(`/index`);
+        };
     }
 
     render() {
         if (this.props.product.length === 0) return null;
 
-        let product = Object.values(this.props.product);
+        let product = Object.values(this.props.product)[0];
 
         return (
             <div id='product-modal-background' onClick={this.handleClick}>
 
                 <div id='product-modal' onClick={(e) => e.stopPropagation()}>
                     <div>
-                        <img src={product[1]} id="image" />
+                        <img src={product.photoUrls} id="image" />
                         <div id="product-info">
                             <div id="product-name">
-                                {product[0].name}
+                                {product.name}
                             </div>
 
                             <div id="product-price">
                                 <div id="discount">
-                                    {product[0].discount}
+                                    {product.discount}
                                 </div>
 
                                 <div id="msrp">
-                                    {product[0].original_price}
+                                    {product.original_price}
                                 </div>
 
                                 <div>

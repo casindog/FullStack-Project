@@ -1,4 +1,8 @@
 class Api::ShoppingCartsController < ApplicationController
+    def index
+        @cartItems = User.find_by_id(shoppingCart_params["user_id"]).shopping_carts
+    end
+
     def create  
         @shopping_cart = ShoppingCart.new(
             user_id: shoppingCart_params["user_id"],
@@ -9,6 +13,10 @@ class Api::ShoppingCartsController < ApplicationController
         if @shopping_cart.save
             @cartItems = User.find_by_id(1).shopping_carts
         end
+
+    end
+
+    def update
 
     end
 

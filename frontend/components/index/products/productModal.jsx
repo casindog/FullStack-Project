@@ -8,7 +8,6 @@ class ProductModal extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.getProduct();
     }
 
     handleClick() {
@@ -16,7 +15,21 @@ class ProductModal extends React.Component {
     }
 
     addItem() {
-        this.props.addItem();
+        // if item is already in database, then we will send a patch request instead
+        let data;
+
+        if (Object.keys(this.props.cartItems).indexOf(Object.keys(this.props.product)[0]) === -1) {
+            data = { cart: {
+                user_id: this.props.session.id,
+                product_id: Object.keys(this.props.product)[0],
+                quantity: 1
+            }}
+    
+            this.props.postItemToCart(data);
+
+        } else {
+            // send a patch request to change quantity
+        }
     }
 
     render() {

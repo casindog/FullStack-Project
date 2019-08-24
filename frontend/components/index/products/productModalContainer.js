@@ -2,13 +2,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProductModal from './productModal';
 import { closeModal, openModal } from '../../../actions/modal_action';
-import { getProduct, postItemToCart } from '../../../actions/modal_action';
+import { getProduct, postItemToCart } from '../../../actions/products_action';
 
 const msp = state => {
     return {
         product: state.entities.product,
+        session: state.session,
         modal: state.ui.modal,
-        errors: state.errors.session
+        errors: state.errors.session,
+        cartItems: state.entities.cartItems
     }
 }
 
@@ -19,8 +21,7 @@ const mdp = dispatch => {
             e.stopPropagation();
             dispatch(closeModal());
         },
-        getProduct: id => dispatch(getProduct(id)),
-        addItem: data => dispatch(postItemToCart(data))
+        postItemToCart: data => dispatch(postItemToCart(data))
     }
 }
 

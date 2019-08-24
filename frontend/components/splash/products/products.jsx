@@ -7,8 +7,6 @@ class Products extends React.Component {
     }
 
     splashProducts() {
-        // shouldn't allow hover magnify on splash background
-
         let products = Object.values(this.props.products).map((product,idx) => (
             <div className="splash-item-container" key={idx}>
                 <div className='index_item_img'>

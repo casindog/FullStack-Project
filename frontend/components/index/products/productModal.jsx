@@ -27,9 +27,9 @@ class ProductModal extends React.Component {
         return false
     }
 
-    addItem() {
-        
+    addItem() {        
         let data;
+
         if (this.checkCartHasItem()) {
             // send patch request to change quantity
             let cartItems = Object.values(this.props.cartItems);
@@ -46,8 +46,8 @@ class ProductModal extends React.Component {
                 cart: {
                     id: ShoppingCartId,
                     user_id: this.props.session.id,
-                    product_id: Object.keys(this.props.product)[0],
-                    quantity: 2
+                    product_id: Object.keys(this.props.product)[0]
+                    // quantity: 2
                 }
             }
 

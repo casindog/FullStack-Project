@@ -6,7 +6,8 @@ import { requestProduct, viewedProducts } from '../../../actions/products_action
 const msp = state => {
     return {
         products: state.entities.products,
-        filterView: state.entities.filterView
+        filterView: state.entities.filterView,
+        cartItems: state.entities.cartItems
     }
 }
 

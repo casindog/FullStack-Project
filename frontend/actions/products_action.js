@@ -1,5 +1,5 @@
 import {
-    getProducts, getProduct, postItem, patchItem, fetchCart
+    getProducts, getProduct, postItem, patchItem, fetchCart, deleteItem
 } from '../utils/products_util';
 
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
@@ -9,6 +9,17 @@ export const VIEWED_PRODUCTS = 'VIEWED_PRODUCTS';
 export const ADD_ITEM = 'ADD_ITEM';
 export const CHANGE_QTY = "CHANGE_QTY";
 export const RECEIVE_CART = 'RECEIVE_CART';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+
+export const removeItem = data => ({
+    type: REMOVE_ITEM,
+    data
+})
+
+export const removeItemFromCart = id => dispatch => {
+    return deleteItem(id).then(data => dispatch(removeItem(data)))
+}
+
 
 export const viewedProducts = id => ({
     type: VIEWED_PRODUCTS,

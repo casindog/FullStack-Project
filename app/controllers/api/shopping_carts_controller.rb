@@ -27,6 +27,12 @@ class Api::ShoppingCartsController < ApplicationController
 
     end
 
+    def destroy
+        @shopping_cart = ShoppingCart.find_by_id(params[:id])
+        @shopping_cart.destroy
+        
+    end
+
     def shoppingCart_params
         params.require(:cart).permit(:id, :user_id, :product_id, :quantity)
     end

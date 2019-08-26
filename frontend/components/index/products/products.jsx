@@ -42,12 +42,22 @@ class Products extends React.Component {
         let products = this.indexProducts();
         if (Object.keys(this.props.products).length === 150) products = products.slice(0, 13);
 
+        let style;
+
+        if (Object.keys(this.props.cartItems).length === 0) {
+            style = {
+                right: "0"
+            }
+        } else {
+            style= {
+                right: "250px"
+            }
+        }
+        
         return (
-            <>
-            <div id="index-products">
+            <div style={style} id="index-products">
                 {products}
             </div>
-            </>
         )
     }
 }

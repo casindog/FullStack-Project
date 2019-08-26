@@ -40,7 +40,7 @@ class Cart extends React.Component {
                                 {cartItem.quantity}
                             </div>
                             <img src="arrow-down-icon.png" alt=""/>
-                            <div onClick={() => { this.props.destroyItem(cartItem.id)}} className="remove-item"> 
+                            <div onClick={() => { this.props.destroyItem({cart: {id: cartItem.id, user_id: cartItem.user_id}})}} className="remove-item"> 
                                 Remove
                             </div>
                         </div>

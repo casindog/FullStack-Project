@@ -38,10 +38,10 @@ export const fetchCart = data => {
     })
 }
 
-export const deleteItem = id => {
-    debugger
+export const deleteItem = data => {
     return $.ajax({
-        url: `/api/shopping_carts/${id}`,
-        method: 'delete'
+        url: `/api/shopping_carts/${data.cart.id}`,
+        method: 'delete',
+        data
     })
 }

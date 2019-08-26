@@ -9,7 +9,7 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    destroyItem: id => dispatch(removeItemFromCart(id)) 
+    destroyItem: (data) => dispatch(removeItemFromCart(data)) 
     // getProduct: id => dispatch(requestProduct(id)),
     // viewedProducts: id => dispatch(viewedProducts(id))
     

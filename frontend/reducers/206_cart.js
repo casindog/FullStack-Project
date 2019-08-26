@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 
 import {
-    ADD_ITEM, RECEIVE_CART, CHANGE_QTY
+    ADD_ITEM, RECEIVE_CART, CHANGE_QTY, REMOVE_ITEM
 } from '../actions/products_action';
 
 export default (state = {}, action) => {
@@ -15,6 +15,8 @@ export default (state = {}, action) => {
             newState = merge({}, state);
             newState[action.data.id] = action.data;
             return newState;
+        case REMOVE_ITEM:
+            return action.data;
         default:
             return state;
     }

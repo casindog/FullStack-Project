@@ -29,8 +29,11 @@ class Api::ShoppingCartsController < ApplicationController
 
     def destroy
         @shopping_cart = ShoppingCart.find_by_id(shoppingCart_params["id"])
-        @shopping_cart.destroy
-        @shopping_cart = User.find_by_id(shoppingCart_params["user_id"]).shopping_carts
+        
+        if @shopping_cart.destroy
+            @deleted = shoppingCart_params["id"]
+        end
+        # @shopping_cart = User.find_by_id(shoppingCart_params["user_id"]).shopping_carts
 
     end
 

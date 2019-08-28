@@ -16,7 +16,9 @@ export default (state = {}, action) => {
             newState[action.data.id] = action.data;
             return newState;
         case REMOVE_ITEM:
-            return action.data;
+            newState = merge({}, state);
+            delete newState[action.data.deletedId];
+            return newState
         default:
             return state;
     }

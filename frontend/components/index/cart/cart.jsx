@@ -14,15 +14,20 @@ class Cart extends React.Component {
 
     render() {
         if (Object.keys(this.props.cartItems).length > 0) {
+            let itemTotal=0;
             let cartItems = Object.values(this.props.cartItems).map((cartItem) => {
+
+                if (cartItem.discount === "Free") {
+                    // do nothing
+                } else {
+                    itemTotal += parseFloat(cartItem.discount.slice(1),10)*cartItem.quantity;
+                }
+
                 return (
                     <div key={cartItem.id} className="item" >
                         <div className="cart-item">
                             <img src={cartItem.photoUrls} alt=""/>
                             <div className="item-info">
-                                <div>
-                                    id: {cartItem.id}
-                                </div>
                                 <div>
                                     original price: {cartItem.original_price}
                                 </div>
@@ -47,8 +52,6 @@ class Cart extends React.Component {
                     </div>
                 )
             });
-
-            let itemTotal;
 
             return (
                 <div id="cart">

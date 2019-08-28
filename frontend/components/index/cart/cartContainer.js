@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Cart from './cart';
-import { removeItemFromCart, patchQtyToCart } from '../../../actions/products_action';
+import { removeItemFromCart, requestProduct, patchQtyToCart } from '../../../actions/products_action';
 
 const msp = state => {
     return {
@@ -9,8 +9,8 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    destroyItem: (data) => dispatch(removeItemFromCart(data)) 
-    // getProduct: id => dispatch(requestProduct(id)),
+    destroyItem: (data) => dispatch(removeItemFromCart(data)) ,
+    getProduct: id => dispatch(requestProduct(id)),
     // viewedProducts: id => dispatch(viewedProducts(id))
     
     

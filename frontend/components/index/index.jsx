@@ -14,7 +14,7 @@ class Index extends React.Component {
             display: "flex", 
             backgroundColor: "rgb(248, 250, 251)",
             width: "100vw",
-            height: "100vh",
+            height: "100%",
             justifyContent: "center"
         }
         return (
@@ -24,9 +24,10 @@ class Index extends React.Component {
 
                 <div style={style}>
                     <IndexProductsContainer purpose="index" />     
-                    {this.props.filterView.loading ? <div id="infinite-load"> </div> : null}
                     <CartContainer />
                 </div>
+                {this.props.filterView.loading ? <div id="infinite-load"> </div> : null }
+
 
             </div>
         )

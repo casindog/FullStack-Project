@@ -126,6 +126,11 @@
     font-family: "proximanova", sans-serif;
 }
 
+.change-quantity > img {
+    width: 25px;
+    height: 25px;
+}
+
 .item {
     height: 150px;
     display: grid;

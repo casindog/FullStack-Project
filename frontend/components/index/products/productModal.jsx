@@ -101,11 +101,11 @@ class ProductModal extends React.Component {
                             <button onClick={this.addItem}>Buy</button>
                         </div>
                     </div>
-
+{/* 
                     <div>
                         <div id="product-rating"> Rating </div>
                         <div id="product-review"> Leave a Review</div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

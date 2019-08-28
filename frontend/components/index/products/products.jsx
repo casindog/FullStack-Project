@@ -46,11 +46,10 @@ class Products extends React.Component {
 
         if (Object.keys(this.props.cartItems).length === 0) {
             style = {
-                right: "0"
             }
         } else {
             style= {
-                right: "250px"
+                left: "-125px"
             }
         }
         

@@ -12,6 +12,10 @@ class Index extends React.Component {
     render() {
         let style = {
             display: "flex", 
+            backgroundColor: "rgb(248, 250, 251)",
+            width: "100vw",
+            height: "100vh",
+            justifyContent: "center"
         }
         return (
             <div id="index">

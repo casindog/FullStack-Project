@@ -55,16 +55,17 @@
 
 #index-products {
     max-width: 1200px;
+    position: relative;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     padding: 20px;
     background-color: rgb(248, 250, 251);
-    position: absolute;
     left: 0;
     right: 250px;
     top: 120px;
+    width: calc(100% - 250px);
 }
 
 .index_item_container {

@@ -7,15 +7,6 @@ class Cart extends React.Component {
 
     render() {
         if (Object.keys(this.props.cartItems).length > 0) {
-            let style = {
-                position: "sticky",
-                top: "70px",
-                backgroundColor: "red",
-                right: "0",
-                height: "100vh",
-                width: "250px"
-            }
-
             let cartItems = Object.values(this.props.cartItems).map((cartItem) => {
                 return (
                     <div key={cartItem.id} className="item" >
@@ -50,8 +41,11 @@ class Cart extends React.Component {
 
             let itemTotal;
 
+            let style = {
+
+            }
             return (
-                <div id="cart">
+                <div style={style} id="cart">
                     <div id="cart-items">
                         {cartItems}
                     </div>

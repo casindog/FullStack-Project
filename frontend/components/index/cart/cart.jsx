@@ -31,19 +31,19 @@ class Cart extends React.Component {
 
     render() {
         if (Object.keys(this.props.cartItems).length > 0) {
-            let itemTotal=0;
+            let numbers = [];
+          
+            let itemTotal = 0;
+            Object.values(this.props.cartItems).forEach(cartItem => {
+                console.log(parseFloat(cartItem.discount.slice(1)))
+                console.log(cartItem.quantity)
+                itemTotal = (Number(itemTotal) + Number(parseFloat(cartItem.discount.slice(1)) * cartItem.quantity)).toFixed(2)
+                console.log(itemTotal)
+            })
+
+
             let cartItems = Object.values(this.props.cartItems).map((cartItem) => {
-                debugger
-                if (cartItem.discount === "Free" || !cartItem.discount) {
-                    // do nothing
-                } else {
-                    itemTotal = (Number(itemTotal) +  Number(parseFloat(cartItem.discount.slice(1))*cartItem.quantity).toFixed(2)).slice(1)
-                }
-
-                let numbers = [];
-
                 for (let i=0; i<10; i++) {
-
                     if (i===0) {
                         numbers[i] =
                             <div onClick={() => {
@@ -87,6 +87,13 @@ class Cart extends React.Component {
                         </div>
                     }
                 };
+
+
+                // if (cartItem.discount === "Free" || !cartItem.discount) {
+                //     // do nothing
+                // } else {
+                // }
+                console.log(itemTotal)
 
                 return (
                     <div key={cartItem.id} className="item" >

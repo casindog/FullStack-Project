@@ -16,11 +16,8 @@ class Cart extends React.Component {
             });
 
             this.setState(newState, () => {
-                console.log(this.state)
                 document.removeEventListener("click", this.handleClick);
             })
-
-            console.log(this.state)
 
         };
     };
@@ -28,7 +25,6 @@ class Cart extends React.Component {
     listOrderQty(cartItemId) {
         this.setState({[cartItemId]: true},() => {
             document.addEventListener("click", this.handleClick)
-            console.log(this.state)
         });
 
     };
@@ -43,6 +39,29 @@ class Cart extends React.Component {
                 } else {
                     itemTotal += parseFloat(cartItem.discount.slice(1),10)*cartItem.quantity;
                 }
+
+                let numbers = [];
+
+                for (let i=0; i<10; i++) {
+                    numbers[i] = 
+                    
+                    <div onClick={() => {this.props.patchQtyToCart(
+                    { cart: {
+                        id: cartItem.id,
+                        user_id: this.props.session.id,
+                        product_id: cartItem.product_id,
+                        quantity: i
+                    }}).then(() => {
+                        let newState = {};
+                        Object.keys(this.state).forEach(ele => {
+                            newState[ele] = false;
+                        });
+                    })
+                    
+                    }} key={i}>
+                        {i}
+                    </div>
+                };
 
                 return (
                     <div key={cartItem.id} className="item" >
@@ -65,16 +84,7 @@ class Cart extends React.Component {
                             <div className="change-quantity" onClick={()=> {this.listOrderQty(cartItem.id)}}>
                                 {this.state[cartItem.id] ? 
                                 <div className='numberQTY'>
-                                    <div>0</div> 
-                                    <div>1</div> 
-                                    <div>2</div> 
-                                    <div>3</div> 
-                                    <div>4</div> 
-                                    <div>5</div> 
-                                    <div>6</div> 
-                                    <div>7</div> 
-                                    <div>8</div> 
-                                    <div>9</div> 
+                                    {numbers}
                                 </div>
                                 
                                 : null}

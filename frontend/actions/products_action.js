@@ -20,7 +20,6 @@ export const removeItemFromCart = (data) => dispatch => {
     return deleteItem(data).then(data => dispatch(removeItem(data)))
 }
 
-
 export const viewedProducts = id => ({
     type: VIEWED_PRODUCTS,
     id

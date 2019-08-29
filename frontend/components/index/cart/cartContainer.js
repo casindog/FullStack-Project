@@ -4,16 +4,16 @@ import { removeItemFromCart, requestProduct, patchQtyToCart } from '../../../act
 
 const msp = state => {
     return {
-        cartItems: state.entities.cartItems
+        cartItems: state.entities.cartItems,
+        session: state.session
     }
 }
 
 const mdp = dispatch => ({
     destroyItem: (data) => dispatch(removeItemFromCart(data)) ,
     getProduct: id => dispatch(requestProduct(id)),
+    patchQtyToCart: data => dispatch(patchQtyToCart(data))
     // viewedProducts: id => dispatch(viewedProducts(id))
-    
-    
 })
 
 export default connect(msp, mdp)(Cart);

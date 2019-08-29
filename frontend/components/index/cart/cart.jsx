@@ -3,10 +3,15 @@ import React from 'react';
 class Cart extends React.Component {
     constructor(props) {
         super(props)
+        this.listOrderQty = this.listOrderQty.bind(this);
+        this.state = {orderQty: false};
     };
 
-    componentDidMount() {
+    listOrderQty() {
+        this.setState({orderQty: true});
+    }
 
+    componentDidMount() {
         for (var key in this.props.cartItems) {
             this.props.getProduct(key)
         }
@@ -17,7 +22,7 @@ class Cart extends React.Component {
             let itemTotal=0;
             let cartItems = Object.values(this.props.cartItems).map((cartItem) => {
 
-                if (cartItem.discount === "Free") {
+                if (cartItem.discount === "Free" || !cartItem.discount) {
                     // do nothing
                 } else {
                     itemTotal += parseFloat(cartItem.discount.slice(1),10)*cartItem.quantity;
@@ -29,10 +34,10 @@ class Cart extends React.Component {
                             <img src={cartItem.photoUrls} alt=""/>
                             <div className="item-info">
                                 <div>
-                                    original price: {cartItem.original_price}
+                                    O price: {cartItem.original_price}
                                 </div>
                                 <div>
-                                    discount price: {cartItem.discount}
+                                    D price: {cartItem.discount}
                                 </div>
                             </div>
                         </div>
@@ -41,7 +46,16 @@ class Cart extends React.Component {
                             <div>
                                 Quantity:
                             </div>
-                            <div className="change-quantity">
+                            <div className="change-quantity" onClick={this.listOrderQty}>
+                                {this.state.orderQty ? 
+                                <div className='numberQTY'>
+
+                                    <div>0</div> 
+                                    <div>1</div> 
+                                    <div>2</div> 
+                                </div>
+                                
+                                : null}
                                 {cartItem.quantity}
                                 <img src="arrow-down-icon.png" alt=""/>
                             </div>

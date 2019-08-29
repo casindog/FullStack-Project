@@ -140,3 +140,34 @@
     padding: 5px;
     margin: 5px;
 }
+
+.numberQTY {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 24px;
+    left: -5px;
+    cursor: pointer;
+
+ 
+}
+
+.numberQTY > div {
+    box-sizing: border-box;
+    width: 56px;
+    height: 26px;
+    color: rgb(25, 42, 50);
+    background-color: rgb(248, 250, 251);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0px 0px 0px 4px;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(212, 227, 235);
+    border-image: initial;
+    font-family: "proximanova", sans-serif;
+}

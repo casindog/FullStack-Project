@@ -67,6 +67,7 @@
   border-radius: 0px 4px 4px 0px;
   padding: 0px 16px;
   transition: background-color 0.2s ease 0s;
+  cursor: pointer;
 }
 
 .Nav-portrait-img {
@@ -96,6 +97,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+
 }
 
 
@@ -133,6 +136,8 @@
   display: flex;
   padding: 5px;
   margin: 10px;
+  cursor: pointer;
+
 }
 
 .profile-logout:hover {

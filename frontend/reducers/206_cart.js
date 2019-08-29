@@ -13,7 +13,7 @@ export default (state = {}, action) => {
             return action.data;
         case CHANGE_QTY:
             newState = merge({}, state);
-            newState[action.data.id] = action.data;
+            newState[action.data.id].quantity = action.data.quantity;
             return newState;
         case REMOVE_ITEM:
             newState = merge({}, state);

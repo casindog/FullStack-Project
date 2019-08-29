@@ -78,13 +78,15 @@
     background-color: rgb(255, 86, 34);
     min-width: 140px;
     border-radius: 2px;
+    cursor: pointer;
+
 }
 
 #product-price {
     box-sizing: border-box;
-        display: flex;
+    display: flex;
     flex-wrap: wrap;
-        font-family: "proximanova", sans-serif;
+    font-family: "proximanova", sans-serif;
 }
 
 #discount {

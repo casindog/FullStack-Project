@@ -47,6 +47,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+
 }
 
 .FilterView:hover{
@@ -72,6 +74,8 @@
     width: 230px;
     height: 290px;
     padding: 10px;
+    cursor: pointer;
+
 }
 
 .index_item_container:hover {

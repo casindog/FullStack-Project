@@ -48,7 +48,7 @@ i = 1;
 
     d = Discount.create(
         product_id: i,
-        discount_price: 'Free'
+        discount_price: '$0'
         )
             
   
@@ -133,7 +133,7 @@ i = 1;
 
     d = Discount.create(
         product_id: i,
-        discount_price: "$4"
+        discount_price: "$1"
     )
 
     i += 1
@@ -177,7 +177,7 @@ i = 1;
 
     d = Discount.create(
         product_id: i,
-        discount_price: "$Free"
+        discount_price: "$0"
     )
 
     i += 1
@@ -199,7 +199,7 @@ i = 1;
 
     d = Discount.create(
         product_id: i,
-        discount_price: "$0.93"
+        discount_price: "$0"
     )
 
     i += 1
@@ -263,7 +263,7 @@ i = 1;
 
     d = Discount.create(
         product_id: i,
-        discount_price: "Free"
+        discount_price: "$0"
     )
 
     i += 1

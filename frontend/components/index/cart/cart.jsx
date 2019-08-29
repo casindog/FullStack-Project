@@ -33,34 +33,59 @@ class Cart extends React.Component {
         if (Object.keys(this.props.cartItems).length > 0) {
             let itemTotal=0;
             let cartItems = Object.values(this.props.cartItems).map((cartItem) => {
-
+                debugger
                 if (cartItem.discount === "Free" || !cartItem.discount) {
                     // do nothing
                 } else {
-                    itemTotal += parseFloat(cartItem.discount.slice(1),10)*cartItem.quantity;
+                    itemTotal = (Number(itemTotal) +  Number(parseFloat(cartItem.discount.slice(1))*cartItem.quantity).toFixed(2)).slice(1)
                 }
 
                 let numbers = [];
 
                 for (let i=0; i<10; i++) {
-                    numbers[i] = 
-                    
-                    <div onClick={() => {this.props.patchQtyToCart(
-                    { cart: {
-                        id: cartItem.id,
-                        user_id: this.props.session.id,
-                        product_id: cartItem.product_id,
-                        quantity: i
-                    }}).then(() => {
-                        let newState = {};
-                        Object.keys(this.state).forEach(ele => {
-                            newState[ele] = false;
-                        });
-                    })
-                    
-                    }} key={i}>
-                        {i}
-                    </div>
+
+                    if (i===0) {
+                        numbers[i] =
+                            <div onClick={() => {
+                                this.props.destroyItem(
+                                    {
+                                        cart: {
+                                            id: cartItem.id,
+                                            user_id: this.props.session.id
+                                            // product_id: cartItem.product_id,
+                                            // quantity: i
+                                        }
+                                    }).then(() => {
+                                        let newState = {};
+                                        Object.keys(this.state).forEach(ele => {
+                                            newState[ele] = false;
+                                        });
+                                    })
+
+                            }} key={i}>
+                                {i}
+                            </div>
+
+                    } else {
+                        numbers[i] = 
+                        
+                        <div onClick={() => {this.props.patchQtyToCart(
+                        { cart: {
+                            id: cartItem.id,
+                            user_id: this.props.session.id,
+                            product_id: cartItem.product_id,
+                            quantity: i
+                        }}).then(() => {
+                            let newState = {};
+                            Object.keys(this.state).forEach(ele => {
+                                newState[ele] = false;
+                            });
+                        })
+
+                        }} key={i}>
+                            {i}
+                        </div>
+                    }
                 };
 
                 return (

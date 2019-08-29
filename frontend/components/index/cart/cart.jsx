@@ -154,7 +154,7 @@ class Cart extends React.Component {
                         <div id="checkout" onClick={() => {
                             alert("Hello! Thanks for taking the time to visit my project. " +
                             "I was inspired to clone the functionality and style of the e-commerce site Wish.com. " +
-                            "This website was intendid to be educational only and not actually authorize any transactions." + 
+                            "This website was intendid to be educational only and not actually authorize any transactions. " + 
                             "Please see my other works on my website:" + "\n" + "https://casindog.github.io/KevinChou/")
                         }}>
                             Place Order

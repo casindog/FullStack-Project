@@ -4,18 +4,34 @@ class Cart extends React.Component {
     constructor(props) {
         super(props)
         this.listOrderQty = this.listOrderQty.bind(this);
-        this.state = {orderQty: false};
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {};
     };
 
-    listOrderQty() {
-        this.setState({orderQty: true});
-    }
+    handleClick () {
+        if (Object.values(this.state).includes(true)) {
+            let newState = {};
+            Object.keys(this.state).forEach(ele => {
+                newState[ele] = false;
+            });
 
-    componentDidMount() {
-        for (var key in this.props.cartItems) {
-            this.props.getProduct(key)
-        }
-    }
+            this.setState(newState, () => {
+                console.log(this.state)
+                document.removeEventListener("click", this.handleClick);
+            })
+
+            console.log(this.state)
+
+        };
+    };
+
+    listOrderQty(cartItemId) {
+        this.setState({[cartItemId]: true},() => {
+            document.addEventListener("click", this.handleClick)
+            console.log(this.state)
+        });
+
+    };
 
     render() {
         if (Object.keys(this.props.cartItems).length > 0) {
@@ -33,11 +49,11 @@ class Cart extends React.Component {
                         <div className="cart-item">
                             <img src={cartItem.photoUrls} alt=""/>
                             <div className="item-info">
-                                <div>
-                                    O price: {cartItem.original_price}
+                                <div className="d-price">
+                                    {cartItem.discount}
                                 </div>
-                                <div>
-                                    D price: {cartItem.discount}
+                                <div className="o-price">
+                                    {cartItem.original_price}
                                 </div>
                             </div>
                         </div>
@@ -46,16 +62,23 @@ class Cart extends React.Component {
                             <div>
                                 Quantity:
                             </div>
-                            <div className="change-quantity" onClick={this.listOrderQty}>
-                                {this.state.orderQty ? 
+                            <div className="change-quantity" onClick={()=> {this.listOrderQty(cartItem.id)}}>
+                                {this.state[cartItem.id] ? 
                                 <div className='numberQTY'>
-
                                     <div>0</div> 
                                     <div>1</div> 
                                     <div>2</div> 
+                                    <div>3</div> 
+                                    <div>4</div> 
+                                    <div>5</div> 
+                                    <div>6</div> 
+                                    <div>7</div> 
+                                    <div>8</div> 
+                                    <div>9</div> 
                                 </div>
                                 
                                 : null}
+
                                 {cartItem.quantity}
                                 <img src="arrow-down-icon.png" alt=""/>
                             </div>

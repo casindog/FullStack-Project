@@ -29,7 +29,8 @@
 .cart-item {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    float: left;
     font-size: 14px;
     font-weight: 400;
     color: rgb(25, 42, 50);
@@ -90,7 +91,7 @@
 
 .item-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .quantity-item {
@@ -148,13 +149,19 @@
     top: 24px;
     left: -5px;
     cursor: pointer;
-
- 
+    z-index: 1;
+    box-sizing: border-box;
+    height: 120px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 60px;
+    transition: height 0.3s ease 0s;
+    animation: 0.3s ease 0s 1 normal both running NKwru;
 }
 
 .numberQTY > div {
     box-sizing: border-box;
-    width: 56px;
+    width: 42px;
     height: 26px;
     color: rgb(25, 42, 50);
     background-color: rgb(248, 250, 251);
@@ -164,10 +171,24 @@
     justify-content: center;
     cursor: pointer;
     margin: 0px 0px 0px 4px;
-    border-radius: 2px;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(212, 227, 235);
     border-image: initial;
+    font-family: "proximanova", sans-serif;
+}
+
+.o-price {
+    margin-left: 5px;
+    color: rgb(175, 199, 209);
+    font-family: "proximanova", sans-serif;
+    text-decoration: line-through;
+}
+
+.d-price {
+    margin-left: 5px;
+    color: rgb(25, 42, 50);
+    font-size: 14px;
+    font-weight: 400;
     font-family: "proximanova", sans-serif;
 }

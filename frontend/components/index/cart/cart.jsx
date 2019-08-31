@@ -26,34 +26,29 @@ class Cart extends React.Component {
         this.setState({[cartItemId]: true},() => {
             document.addEventListener("click", this.handleClick)
         });
-
     };
 
     render() {
         if (Object.keys(this.props.cartItems).length > 0) {
-            let numbers = [];
+            let numbers = {};
           
             let itemTotal = 0;
             Object.values(this.props.cartItems).forEach(cartItem => {
-                console.log(parseFloat(cartItem.discount.slice(1)))
-                console.log(cartItem.quantity)
                 itemTotal = (Number(itemTotal) + Number(parseFloat(cartItem.discount.slice(1)) * cartItem.quantity)).toFixed(2)
-                console.log(itemTotal)
             })
 
+            let cartItems = Object.values(this.props.cartItems).map(cartItem => {
+                if (!numbers[cartItem.id]) numbers[cartItem.id] = {};
 
-            let cartItems = Object.values(this.props.cartItems).map((cartItem) => {
-                for (let i=0; i<10; i++) {
+                for (let i=0; i<15; i++) {
                     if (i===0) {
-                        numbers[i] =
+                        numbers[cartItem.id][i] =
                             <div onClick={() => {
                                 this.props.destroyItem(
                                     {
                                         cart: {
                                             id: cartItem.id,
                                             user_id: this.props.session.id
-                                            // product_id: cartItem.product_id,
-                                            // quantity: i
                                         }
                                     }).then(() => {
                                         let newState = {};
@@ -65,11 +60,11 @@ class Cart extends React.Component {
                             }} key={i}>
                                 {i}
                             </div>
-
                     } else {
-                        numbers[i] = 
+                        numbers[cartItem.id][i] = 
                         
-                        <div onClick={() => {this.props.patchQtyToCart(
+                        <div onClick={() => {
+                            this.props.patchQtyToCart(
                         { cart: {
                             id: cartItem.id,
                             user_id: this.props.session.id,
@@ -87,13 +82,6 @@ class Cart extends React.Component {
                         </div>
                     }
                 };
-
-
-                // if (cartItem.discount === "Free" || !cartItem.discount) {
-                //     // do nothing
-                // } else {
-                // }
-                console.log(itemTotal)
 
                 return (
                     <div key={cartItem.id} className="item" >
@@ -116,7 +104,7 @@ class Cart extends React.Component {
                             <div className="change-quantity" onClick={()=> {this.listOrderQty(cartItem.id)}}>
                                 {this.state[cartItem.id] ? 
                                 <div className='numberQTY'>
-                                    {numbers}
+                                    {Object.values(numbers[cartItem.id])}
                                 </div>
                                 
                                 : null}
@@ -124,7 +112,7 @@ class Cart extends React.Component {
                                 {cartItem.quantity}
                                 <img src="arrow-down-icon.png" alt=""/>
                             </div>
-                            <div onClick={() => { this.props.destroyItem({cart: {id: cartItem.id, user_id: cartItem.user_id}})}} className="remove-item"> 
+                            <div onClick={() => {this.props.destroyItem({cart: {id: cartItem.id, user_id: cartItem.user_id}})}} className="remove-item"> 
                                 Remove
                             </div>
                         </div>

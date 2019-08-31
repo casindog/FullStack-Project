@@ -22,6 +22,7 @@ export const postItem = data => {
 }
 
 export const patchItem = data => {
+
     return $.ajax({
         url: `/api/shopping_carts/${data.cart.id}`,
         method: 'patch',

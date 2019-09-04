@@ -7,18 +7,25 @@ class ProductModal extends React.Component {
         this.checkCartHasItem = this.checkCartHasItem.bind(this);
         this.addItem = this.addItem.bind(this);
         this.submitReview = this.submitReview.bind(this);
-        this.state = {};
+        this.handleComment = this.handleComment.bind(this);
+        this.state = {comment: ''};
     }
+
+    handleComment(e) {
+        this.setState({
+            comment: e.target.value
+        });
+    };
 
     submitReview() {
         debugger
         let data = {review: {
             user_id: this.props.session.id,
             product_id: Object.keys(this.props.product)[0],
-            review: "Great for children!"
+            review: this.state.comment
         }};
         this.props.createReview(data);
-    }
+    };
 
     handleClick() {
         this.props.history.push(`/index`);
@@ -118,7 +125,7 @@ class ProductModal extends React.Component {
                                     {reviews}
 
                                     <form id="post-review">
-                                        <input type="text" placeholder="Leave a review"/>
+                                        <input type="text" placeholder="Leave a review" value={this.state.comment} onChange={this.handleComment}/>
                                         <button onClick={this.submitReview}>Submit</button>
                                     </form>
 

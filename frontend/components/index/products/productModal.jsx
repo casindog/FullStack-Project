@@ -18,13 +18,17 @@ class ProductModal extends React.Component {
     };
 
     submitReview() {
-        debugger
         let data = {review: {
             user_id: this.props.session.id,
             product_id: Object.keys(this.props.product)[0],
             review: this.state.comment
         }};
+        
         this.props.createReview(data);
+
+        this.setState({
+            comment: ''
+        });
     };
 
     handleClick() {

@@ -17,7 +17,7 @@
 
 #product-modal {
     width: 1000px;
-    height: 1250px;
+    height: 1000px;
     background-color: white;
     display: flex;
     flex-direction: column;

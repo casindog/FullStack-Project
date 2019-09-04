@@ -7,13 +7,15 @@ class ProductModal extends React.Component {
         this.checkCartHasItem = this.checkCartHasItem.bind(this);
         this.addItem = this.addItem.bind(this);
         this.submitReview = this.submitReview.bind(this);
+        this.state = {};
     }
 
     submitReview() {
+        debugger
         let data = {review: {
-            user_id: 2,
-            product_id: 3,
-            review: "dummy"
+            user_id: this.props.session.id,
+            product_id: Object.keys(this.props.product)[0],
+            review: "Great for children!"
         }};
         this.props.createReview(data);
     }

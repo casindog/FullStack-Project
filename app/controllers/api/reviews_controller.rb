@@ -15,7 +15,7 @@ class Api::ReviewsController < ApplicationController
         )
             
         if @review.save
-            @reviews = Product.find_by_id(review_params[:product_id]).reviews;
+            @reviews = Product.find_by_id(review_params[:product_id]).reviews.order(created_at: :desc).limit(3);
         end
     end
 

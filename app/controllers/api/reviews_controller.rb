@@ -4,24 +4,23 @@ class Api::ReviewsController < ApplicationController
     end
 
     def show
-        @reviews = Review.find_by_product_id(params['id']);
-        
+        @reviews = Product.find_by_id(params[:id]).reviews.order(created_at: :desc).limit(3)
     end
 
     def create  
-    @review = Review.new(
-        user_id: review_params["user_id"],
-        product_id: review_params["product_id"],
-        review: review_params["review"]
-    )
-
-    if @review.save
-        # @cartItems = User.find_by_id(review_params["user_id"]).shopping_carts
-    end
-
+        @review = Review.new(
+            user_id: review_params["user_id"],
+            product_id: review_params["product_id"],
+            comment: review_params["review"]
+        )
+            
+        if @review.save
+            @reviews = Product.find_by_id(review_params[:product_id]).reviews;
+        end
     end
 
     def review_params
+        params.require(:review).permit(:user_id, :product_id, :review)
     end
 
 end

@@ -6,10 +6,16 @@ class ProductModal extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.checkCartHasItem = this.checkCartHasItem.bind(this);
         this.addItem = this.addItem.bind(this);
+        this.submitReview = this.submitReview.bind(this);
     }
 
-    componentDidMount() {
-
+    submitReview() {
+        let data = {review: {
+            user_id: 2,
+            product_id: 3,
+            review: "dummy"
+        }};
+        this.props.createReview(data);
     }
 
     handleClick() {
@@ -48,7 +54,6 @@ class ProductModal extends React.Component {
                     id: ShoppingCartId,
                     user_id: this.props.session.id,
                     product_id: Object.keys(this.props.product)[0]
-                    // quantity: 2
                 }
             }
 
@@ -75,11 +80,26 @@ class ProductModal extends React.Component {
         } else {
 
             let product = Object.values(this.props.product)[0];
-            let reviews = Object.values(this.props.reviews).map(review => {
-                return (<div>
-                    {review.comment}
-                </div>)
-            })
+            let reviews = Object.values(this.props.reviews).map((review,idx) => {
+                return (
+                    <div key={idx} className="review">
+                        
+                        <img className="review-profile" src="https://contestimg.wish.com/api/image/fetch?profile_image_name=NTYwNWMxYmEyMWE4NjMxNzk0ZTk1NDUy_1398450030237.jpg&amp;w=50&amp;h=50" ></img>
+
+                        <div className="review-info">
+                            <div className="review-user">
+                                {review.user_name}
+                            </div>
+
+                            <div className="review-time">
+                                {review.created_at}
+                            </div>
+                            <div className="review-comment">
+                                {review.comment}
+                            </div>
+                        </div>
+                    </div>)
+                })
 
             return (
                 <div id='product-modal-background' onClick={this.handleClick}>
@@ -90,8 +110,16 @@ class ProductModal extends React.Component {
                                 <img src={product.photoUrls} id="image" />
 
                                 <div id="review">
-                                    Customer Reviews
+                                    <div id="review-title">
+                                        Customer Reviews
+                                    </div>
                                     {reviews}
+
+                                    <form id="post-review">
+                                        <input type="text" placeholder="Leave a review"/>
+                                        <button onClick={this.submitReview}>Submit</button>
+                                    </form>
+
                                 </div>
                             </div>
 
@@ -111,9 +139,6 @@ class ProductModal extends React.Component {
                                         {product.original_price}
                                     </div>
 
-                                    <div>
-
-                                    </div>
                                 </div>
 
                                 <button onClick={this.addItem}>Buy</button>

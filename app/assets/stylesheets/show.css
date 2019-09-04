@@ -17,7 +17,7 @@
 
 #product-modal {
     width: 1000px;
-    height: 1000px;
+    height: 1250px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -30,11 +30,10 @@
 
 }
 
-
 #image {
-    width: 500px;
-    height: 500px;
-    padding-bottom: 40px;
+    width: 450px;
+    height: 450px;
+    padding-bottom: 30px;
     display: flex;
     float: left;
 }
@@ -116,7 +115,7 @@
 #review {
     width: 100%;
     border-top: 3px solid rgb(240, 245, 247);
-    padding: 32px 17px;
+    padding: 30px 17px;
     box-sizing: border-box;
     font-family: "proximanova", sans-serif;
     margin-bottom: 18px;
@@ -124,3 +123,112 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.review {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    display: flex;
+    text-align: left;
+    font-family: "proximanova", sans-serif;
+}
+
+#review-title {
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "proximanova", sans-serif;
+}
+
+.review-profile {
+    width: 40px;
+    height: 40px;
+    background-size: 40px;
+    background-color: rgba(47, 183, 236, 0.3);
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(47, 183, 236);
+    opacity: 1;
+    flex-shrink: 0;
+    border-radius: 100%;
+    border-width: 0px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+}
+
+.review-info {
+    box-sizing: border-box;
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    flex: 1 1 0%;
+    font-family: "proximanova", sans-serif;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+}
+
+.review-user {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: rgb(25, 42, 50);
+    flex: 1 1 0%;
+    font-family: "proximanova", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+}
+
+.review-time {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: rgb(126, 154, 166);
+    font-family: "proximanova", sans-serif;
+    letter-spacing: 0.4px;
+}   
+
+.review-comment {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    flex: 1 1 0%;
+    color: rgb(25, 42, 50);
+    font-family: "proximanova", sans-serif;
+    box-sizing: border-box;
+    margin-top: 7px;
+    overflow-wrap: break-word;
+}
+
+#post-review {
+    display: flex;
+    flex-direction: column;
+}
+
+#post-review input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#post-review button {
+    width: 100%;
+    background-color: rgb(47, 183, 236);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* #post-review button:hover {
+    background-color: rgb(255, 86, 34);
+} */

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProductModal from './productModal';
 import { postItemToCart, patchQtyToCart } from '../../../actions/products_action';
-// import { fetchReviews } from '../../../actions/reviews_action';
+import { createReview } from '../../../actions/reviews_action';
 
 const msp = state => {
     return {
@@ -19,7 +19,7 @@ const mdp = dispatch => {
     return {
         postItemToCart: data => dispatch(postItemToCart(data)),
         patchQtyToCart: data => dispatch(patchQtyToCart(data)),
-        // fetchReviews: id => dispatch(fetchReviews(id))
+        createReview: data => dispatch(createReview(data))
     }
 }
 

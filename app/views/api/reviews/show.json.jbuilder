@@ -1,10 +1,12 @@
 # if nil, meaning no reviews.
 if !@reviews 
-    debugger
+    # do nothing
 else 
-    json.set! @reviews.id do  
-        json.extract! @reviews, :comment, :created_at
+    @reviews.each do |review|
+        json.set! review.id do  
+            json.extract! review, :comment, :created_at
 
-        json.user_name User.find_by_id(@reviews['user_id']).email
+            json.user_name User.find_by_id(review['user_id']).email
+        end
     end
 end

@@ -9,6 +9,7 @@ class ProductModal extends React.Component {
     }
 
     componentDidMount() {
+
     }
 
     handleClick() {
@@ -69,46 +70,61 @@ class ProductModal extends React.Component {
     }
 
     render() {
-        if (this.props.product.length === 0) return null;
+        if (this.props.product.length === 0) {
+            return null;
+        } else {
 
-        let product = Object.values(this.props.product)[0];
+            let product = Object.values(this.props.product)[0];
+            let reviews = Object.values(this.props.reviews).map(review => {
+                return (<div>
+                    {review.comment}
+                </div>)
+            })
 
-        return (
-            <div id='product-modal-background' onClick={this.handleClick}>
+            return (
+                <div id='product-modal-background' onClick={this.handleClick}>
 
-                <div id='product-modal' onClick={(e) => e.stopPropagation()}>
-                    <div>
-                        <img src={product.photoUrls} id="image" />
-                        <div id="product-info">
-                            <div id="product-name">
-                                {product.name}
-                            </div>
+                    <div id='product-modal' onClick={(e) => e.stopPropagation()}>
+                        <div>
+                            <div>
+                                <img src={product.photoUrls} id="image" />
 
-                            <div id="product-price">
-                                <div id="discount">
-                                    {product.discount}
-                                </div>
-
-                                <div id="msrp">
-                                    {product.original_price}
-                                </div>
-
-                                <div>
-
+                                <div id="review">
+                                    Customer Reviews
+                                    {reviews}
                                 </div>
                             </div>
 
-                            <button onClick={this.addItem}>Buy</button>
+
+
+                            <div id="product-info">
+                                <div id="product-name">
+                                    {product.name}
+                                </div>
+
+                                <div id="product-price">
+                                    <div id="discount">
+                                        {product.discount}
+                                    </div>
+
+                                    <div id="msrp">
+                                        {product.original_price}
+                                    </div>
+
+                                    <div>
+
+                                    </div>
+                                </div>
+
+                                <button onClick={this.addItem}>Buy</button>
+                            </div>
                         </div>
+
                     </div>
-{/* 
-                    <div>
-                        <div id="product-rating"> Rating </div>
-                        <div id="product-review"> Leave a Review</div>
-                    </div> */}
                 </div>
-            </div>
-        )
+            )
+        }
+
     }
 
 }

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProductModal from './productModal';
-import { closeModal, openModal } from '../../../actions/modal_action';
 import { postItemToCart, patchQtyToCart } from '../../../actions/products_action';
+// import { fetchReviews } from '../../../actions/reviews_action';
 
 const msp = state => {
     return {
@@ -10,19 +10,16 @@ const msp = state => {
         session: state.session,
         modal: state.ui.modal,
         errors: state.errors.session,
-        cartItems: state.entities.cartItems
+        cartItems: state.entities.cartItems,
+        reviews: state.entities.reviews
     }
 }
 
 const mdp = dispatch => {
     return {
-        openModal: modal => dispatch(openModal(modal)),
-        closeModal: (e) => {
-            e.stopPropagation();
-            dispatch(closeModal());
-        },
         postItemToCart: data => dispatch(postItemToCart(data)),
-        patchQtyToCart: data => dispatch(patchQtyToCart(data))
+        patchQtyToCart: data => dispatch(patchQtyToCart(data)),
+        // fetchReviews: id => dispatch(fetchReviews(id))
     }
 }
 

@@ -12,6 +12,7 @@ class Products extends React.Component {
         this.props.viewedProducts(id);        
         this.props.history.push(`/index/${id}`);
         this.props.getProduct(id);
+        this.props.fetchReviews(id);
     }
 
     indexProducts() {

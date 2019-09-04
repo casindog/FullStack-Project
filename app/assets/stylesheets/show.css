@@ -112,3 +112,15 @@
     display: block;
     box-sizing: border-box;
 }
+
+#review {
+    width: 100%;
+    border-top: 3px solid rgb(240, 245, 247);
+    padding: 32px 17px;
+    box-sizing: border-box;
+    font-family: "proximanova", sans-serif;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

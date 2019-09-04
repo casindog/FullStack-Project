@@ -6,6 +6,7 @@ import productsReducer from './202_products';
 import filterViewsReducer from './203_filterViews';
 import viewedProductsReducer from './205_viewedProducts';
 import cartItemsReducer from './206_cart';
+import reviewsReducer from './207_reviews';
 
 export default combineReducers({
     user: usersReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
     products: productsReducer,
     filterView: filterViewsReducer,
     viewedProducts: viewedProductsReducer,
-    cartItems: cartItemsReducer
+    cartItems: cartItemsReducer,
+    reviews: reviewsReducer
 });
